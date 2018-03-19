@@ -1,0 +1,295 @@
+Arduino: 1.8.5 (Windows 10), Board: "Arduino/Genuino 101"
+
+C:\Program Files (x86)\Arduino\arduino-builder -dump-prefs -logger=machine -hardware C:\Program Files (x86)\Arduino\hardware -hardware C:\Users\xsegg\AppData\Local\Arduino15\packages -tools C:\Program Files (x86)\Arduino\tools-builder -tools C:\Program Files (x86)\Arduino\hardware\tools\avr -tools C:\Users\xsegg\AppData\Local\Arduino15\packages -built-in-libraries C:\Program Files (x86)\Arduino\libraries -libraries C:\Users\xsegg\Documents\Arduino\libraries -fqbn=Intel:arc32:arduino_101 -ide-version=10805 -build-path C:\Users\xsegg\AppData\Local\Temp\arduino_build_415332 -warnings=none -build-cache C:\Users\xsegg\AppData\Local\Temp\arduino_cache_713986 -prefs=build.warn_data_percentage=75 -prefs=runtime.tools.dfu-util.path=C:\Users\xsegg\AppData\Local\Arduino15\packages\arduino\tools\dfu-util\0.9.0-arduino1 -prefs=runtime.tools.arc-elf32.path=C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\tools\arc-elf32\1.6.9+1.0.1 -prefs=runtime.tools.openocd.path=C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\tools\openocd\0.9.0+0.1 -prefs=runtime.tools.arduino101load.path=C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\tools\arduino101load\2.0.1 -prefs=runtime.tools.flashpack.path=C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\tools\flashpack\2.0.0 -verbose C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.5\Guidance_Computer_v0.5.ino
+C:\Program Files (x86)\Arduino\arduino-builder -compile -logger=machine -hardware C:\Program Files (x86)\Arduino\hardware -hardware C:\Users\xsegg\AppData\Local\Arduino15\packages -tools C:\Program Files (x86)\Arduino\tools-builder -tools C:\Program Files (x86)\Arduino\hardware\tools\avr -tools C:\Users\xsegg\AppData\Local\Arduino15\packages -built-in-libraries C:\Program Files (x86)\Arduino\libraries -libraries C:\Users\xsegg\Documents\Arduino\libraries -fqbn=Intel:arc32:arduino_101 -ide-version=10805 -build-path C:\Users\xsegg\AppData\Local\Temp\arduino_build_415332 -warnings=none -build-cache C:\Users\xsegg\AppData\Local\Temp\arduino_cache_713986 -prefs=build.warn_data_percentage=75 -prefs=runtime.tools.dfu-util.path=C:\Users\xsegg\AppData\Local\Arduino15\packages\arduino\tools\dfu-util\0.9.0-arduino1 -prefs=runtime.tools.arc-elf32.path=C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\tools\arc-elf32\1.6.9+1.0.1 -prefs=runtime.tools.openocd.path=C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\tools\openocd\0.9.0+0.1 -prefs=runtime.tools.arduino101load.path=C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\tools\arduino101load\2.0.1 -prefs=runtime.tools.flashpack.path=C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\tools\flashpack\2.0.0 -verbose C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.5\Guidance_Computer_v0.5.ino
+Using board 'arduino_101' from platform in folder: C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2
+Using core 'arduino' from platform in folder: C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2
+Detecting libraries used...
+"C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\tools\arc-elf32\1.6.9+1.0.1/bin/arc-elf32-g++" -c -mcpu=quarkse_em -mlittle-endian -g -Os -Wall -fno-reorder-functions -fno-asynchronous-unwind-tables -fno-omit-frame-pointer -fno-defer-pop -Wno-unused-but-set-variable -Wno-main -ffreestanding -fno-stack-protector -mno-sdata -ffunction-sections -fdata-sections -fsigned-char  -fno-rtti -fno-exceptions -fcheck-new -D__ARDUINO_ARC__ -std=c++11 -DCONFIG_BLUETOOTH_PERIPHERAL -DCONFIG_BLUETOOTH_CENTRAL -DCONFIG_BLUETOOTH_GATT_CLIENT -w -x c++ -E -CC -DF_CPU=32000000L -DARDUINO=10805 -DARDUINO_ARC32_TOOLS -DARDUINO_ARCH_ARC32 -D__CPU_ARC__ -DCLOCK_SPEED=32 -DCONFIG_SOC_GPIO_32 -DCONFIG_SOC_GPIO_AON -DINFRA_MULTI_CPU_SUPPORT -DCFW_MULTI_CPU_SUPPORT -DHAS_SHARED_MEM "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/common" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/drivers" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/bootcode" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/framework/include"  "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\cores\arduino" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\variants\arduino_101" "C:\Users\xsegg\AppData\Local\Temp\arduino_build_415332\sketch\Guidance_Computer_v0.5.ino.cpp" -o "nul"
+"C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\tools\arc-elf32\1.6.9+1.0.1/bin/arc-elf32-g++" -c -mcpu=quarkse_em -mlittle-endian -g -Os -Wall -fno-reorder-functions -fno-asynchronous-unwind-tables -fno-omit-frame-pointer -fno-defer-pop -Wno-unused-but-set-variable -Wno-main -ffreestanding -fno-stack-protector -mno-sdata -ffunction-sections -fdata-sections -fsigned-char  -fno-rtti -fno-exceptions -fcheck-new -D__ARDUINO_ARC__ -std=c++11 -DCONFIG_BLUETOOTH_PERIPHERAL -DCONFIG_BLUETOOTH_CENTRAL -DCONFIG_BLUETOOTH_GATT_CLIENT -w -x c++ -E -CC -DF_CPU=32000000L -DARDUINO=10805 -DARDUINO_ARC32_TOOLS -DARDUINO_ARCH_ARC32 -D__CPU_ARC__ -DCLOCK_SPEED=32 -DCONFIG_SOC_GPIO_32 -DCONFIG_SOC_GPIO_AON -DINFRA_MULTI_CPU_SUPPORT -DCFW_MULTI_CPU_SUPPORT -DHAS_SHARED_MEM "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/common" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/drivers" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/bootcode" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/framework/include"  "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\cores\arduino" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\variants\arduino_101" "-IC:\Users\xsegg\Documents\Arduino\libraries\SD\src" "C:\Users\xsegg\AppData\Local\Temp\arduino_build_415332\sketch\Guidance_Computer_v0.5.ino.cpp" -o "nul"
+"C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\tools\arc-elf32\1.6.9+1.0.1/bin/arc-elf32-g++" -c -mcpu=quarkse_em -mlittle-endian -g -Os -Wall -fno-reorder-functions -fno-asynchronous-unwind-tables -fno-omit-frame-pointer -fno-defer-pop -Wno-unused-but-set-variable -Wno-main -ffreestanding -fno-stack-protector -mno-sdata -ffunction-sections -fdata-sections -fsigned-char  -fno-rtti -fno-exceptions -fcheck-new -D__ARDUINO_ARC__ -std=c++11 -DCONFIG_BLUETOOTH_PERIPHERAL -DCONFIG_BLUETOOTH_CENTRAL -DCONFIG_BLUETOOTH_GATT_CLIENT -w -x c++ -E -CC -DF_CPU=32000000L -DARDUINO=10805 -DARDUINO_ARC32_TOOLS -DARDUINO_ARCH_ARC32 -D__CPU_ARC__ -DCLOCK_SPEED=32 -DCONFIG_SOC_GPIO_32 -DCONFIG_SOC_GPIO_AON -DINFRA_MULTI_CPU_SUPPORT -DCFW_MULTI_CPU_SUPPORT -DHAS_SHARED_MEM "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/common" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/drivers" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/bootcode" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/framework/include"  "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\cores\arduino" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\variants\arduino_101" "-IC:\Users\xsegg\Documents\Arduino\libraries\SD\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\SPI\src" "C:\Users\xsegg\AppData\Local\Temp\arduino_build_415332\sketch\Guidance_Computer_v0.5.ino.cpp" -o "nul"
+"C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\tools\arc-elf32\1.6.9+1.0.1/bin/arc-elf32-g++" -c -mcpu=quarkse_em -mlittle-endian -g -Os -Wall -fno-reorder-functions -fno-asynchronous-unwind-tables -fno-omit-frame-pointer -fno-defer-pop -Wno-unused-but-set-variable -Wno-main -ffreestanding -fno-stack-protector -mno-sdata -ffunction-sections -fdata-sections -fsigned-char  -fno-rtti -fno-exceptions -fcheck-new -D__ARDUINO_ARC__ -std=c++11 -DCONFIG_BLUETOOTH_PERIPHERAL -DCONFIG_BLUETOOTH_CENTRAL -DCONFIG_BLUETOOTH_GATT_CLIENT -w -x c++ -E -CC -DF_CPU=32000000L -DARDUINO=10805 -DARDUINO_ARC32_TOOLS -DARDUINO_ARCH_ARC32 -D__CPU_ARC__ -DCLOCK_SPEED=32 -DCONFIG_SOC_GPIO_32 -DCONFIG_SOC_GPIO_AON -DINFRA_MULTI_CPU_SUPPORT -DCFW_MULTI_CPU_SUPPORT -DHAS_SHARED_MEM "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/common" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/drivers" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/bootcode" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/framework/include"  "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\cores\arduino" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\variants\arduino_101" "-IC:\Users\xsegg\Documents\Arduino\libraries\SD\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\SPI\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\Adafruit_MPL3115A2" "C:\Users\xsegg\AppData\Local\Temp\arduino_build_415332\sketch\Guidance_Computer_v0.5.ino.cpp" -o "nul"
+"C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\tools\arc-elf32\1.6.9+1.0.1/bin/arc-elf32-g++" -c -mcpu=quarkse_em -mlittle-endian -g -Os -Wall -fno-reorder-functions -fno-asynchronous-unwind-tables -fno-omit-frame-pointer -fno-defer-pop -Wno-unused-but-set-variable -Wno-main -ffreestanding -fno-stack-protector -mno-sdata -ffunction-sections -fdata-sections -fsigned-char  -fno-rtti -fno-exceptions -fcheck-new -D__ARDUINO_ARC__ -std=c++11 -DCONFIG_BLUETOOTH_PERIPHERAL -DCONFIG_BLUETOOTH_CENTRAL -DCONFIG_BLUETOOTH_GATT_CLIENT -w -x c++ -E -CC -DF_CPU=32000000L -DARDUINO=10805 -DARDUINO_ARC32_TOOLS -DARDUINO_ARCH_ARC32 -D__CPU_ARC__ -DCLOCK_SPEED=32 -DCONFIG_SOC_GPIO_32 -DCONFIG_SOC_GPIO_AON -DINFRA_MULTI_CPU_SUPPORT -DCFW_MULTI_CPU_SUPPORT -DHAS_SHARED_MEM "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/common" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/drivers" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/bootcode" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/framework/include"  "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\cores\arduino" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\variants\arduino_101" "-IC:\Users\xsegg\Documents\Arduino\libraries\SD\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\SPI\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\Adafruit_MPL3115A2" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Wire\src" "C:\Users\xsegg\AppData\Local\Temp\arduino_build_415332\sketch\Guidance_Computer_v0.5.ino.cpp" -o "nul"
+"C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\tools\arc-elf32\1.6.9+1.0.1/bin/arc-elf32-g++" -c -mcpu=quarkse_em -mlittle-endian -g -Os -Wall -fno-reorder-functions -fno-asynchronous-unwind-tables -fno-omit-frame-pointer -fno-defer-pop -Wno-unused-but-set-variable -Wno-main -ffreestanding -fno-stack-protector -mno-sdata -ffunction-sections -fdata-sections -fsigned-char  -fno-rtti -fno-exceptions -fcheck-new -D__ARDUINO_ARC__ -std=c++11 -DCONFIG_BLUETOOTH_PERIPHERAL -DCONFIG_BLUETOOTH_CENTRAL -DCONFIG_BLUETOOTH_GATT_CLIENT -w -x c++ -E -CC -DF_CPU=32000000L -DARDUINO=10805 -DARDUINO_ARC32_TOOLS -DARDUINO_ARCH_ARC32 -D__CPU_ARC__ -DCLOCK_SPEED=32 -DCONFIG_SOC_GPIO_32 -DCONFIG_SOC_GPIO_AON -DINFRA_MULTI_CPU_SUPPORT -DCFW_MULTI_CPU_SUPPORT -DHAS_SHARED_MEM "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/common" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/drivers" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/bootcode" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/framework/include"  "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\cores\arduino" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\variants\arduino_101" "-IC:\Users\xsegg\Documents\Arduino\libraries\SD\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\SPI\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\Adafruit_MPL3115A2" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Wire\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Servo\src" "C:\Users\xsegg\AppData\Local\Temp\arduino_build_415332\sketch\Guidance_Computer_v0.5.ino.cpp" -o "nul"
+"C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\tools\arc-elf32\1.6.9+1.0.1/bin/arc-elf32-g++" -c -mcpu=quarkse_em -mlittle-endian -g -Os -Wall -fno-reorder-functions -fno-asynchronous-unwind-tables -fno-omit-frame-pointer -fno-defer-pop -Wno-unused-but-set-variable -Wno-main -ffreestanding -fno-stack-protector -mno-sdata -ffunction-sections -fdata-sections -fsigned-char  -fno-rtti -fno-exceptions -fcheck-new -D__ARDUINO_ARC__ -std=c++11 -DCONFIG_BLUETOOTH_PERIPHERAL -DCONFIG_BLUETOOTH_CENTRAL -DCONFIG_BLUETOOTH_GATT_CLIENT -w -x c++ -E -CC -DF_CPU=32000000L -DARDUINO=10805 -DARDUINO_ARC32_TOOLS -DARDUINO_ARCH_ARC32 -D__CPU_ARC__ -DCLOCK_SPEED=32 -DCONFIG_SOC_GPIO_32 -DCONFIG_SOC_GPIO_AON -DINFRA_MULTI_CPU_SUPPORT -DCFW_MULTI_CPU_SUPPORT -DHAS_SHARED_MEM "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/common" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/drivers" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/bootcode" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/framework/include"  "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\cores\arduino" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\variants\arduino_101" "-IC:\Users\xsegg\Documents\Arduino\libraries\SD\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\SPI\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\Adafruit_MPL3115A2" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Wire\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Servo\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\PID" "C:\Users\xsegg\AppData\Local\Temp\arduino_build_415332\sketch\Guidance_Computer_v0.5.ino.cpp" -o "nul"
+"C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\tools\arc-elf32\1.6.9+1.0.1/bin/arc-elf32-g++" -c -mcpu=quarkse_em -mlittle-endian -g -Os -Wall -fno-reorder-functions -fno-asynchronous-unwind-tables -fno-omit-frame-pointer -fno-defer-pop -Wno-unused-but-set-variable -Wno-main -ffreestanding -fno-stack-protector -mno-sdata -ffunction-sections -fdata-sections -fsigned-char  -fno-rtti -fno-exceptions -fcheck-new -D__ARDUINO_ARC__ -std=c++11 -DCONFIG_BLUETOOTH_PERIPHERAL -DCONFIG_BLUETOOTH_CENTRAL -DCONFIG_BLUETOOTH_GATT_CLIENT -w -x c++ -E -CC -DF_CPU=32000000L -DARDUINO=10805 -DARDUINO_ARC32_TOOLS -DARDUINO_ARCH_ARC32 -D__CPU_ARC__ -DCLOCK_SPEED=32 -DCONFIG_SOC_GPIO_32 -DCONFIG_SOC_GPIO_AON -DINFRA_MULTI_CPU_SUPPORT -DCFW_MULTI_CPU_SUPPORT -DHAS_SHARED_MEM "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/common" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/drivers" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/bootcode" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/framework/include"  "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\cores\arduino" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\variants\arduino_101" "-IC:\Users\xsegg\Documents\Arduino\libraries\SD\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\SPI\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\Adafruit_MPL3115A2" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Wire\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Servo\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\PID" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\CurieIMU\src" "C:\Users\xsegg\AppData\Local\Temp\arduino_build_415332\sketch\Guidance_Computer_v0.5.ino.cpp" -o "nul"
+"C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\tools\arc-elf32\1.6.9+1.0.1/bin/arc-elf32-g++" -c -mcpu=quarkse_em -mlittle-endian -g -Os -Wall -fno-reorder-functions -fno-asynchronous-unwind-tables -fno-omit-frame-pointer -fno-defer-pop -Wno-unused-but-set-variable -Wno-main -ffreestanding -fno-stack-protector -mno-sdata -ffunction-sections -fdata-sections -fsigned-char  -fno-rtti -fno-exceptions -fcheck-new -D__ARDUINO_ARC__ -std=c++11 -DCONFIG_BLUETOOTH_PERIPHERAL -DCONFIG_BLUETOOTH_CENTRAL -DCONFIG_BLUETOOTH_GATT_CLIENT -w -x c++ -E -CC -DF_CPU=32000000L -DARDUINO=10805 -DARDUINO_ARC32_TOOLS -DARDUINO_ARCH_ARC32 -D__CPU_ARC__ -DCLOCK_SPEED=32 -DCONFIG_SOC_GPIO_32 -DCONFIG_SOC_GPIO_AON -DINFRA_MULTI_CPU_SUPPORT -DCFW_MULTI_CPU_SUPPORT -DHAS_SHARED_MEM "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/common" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/drivers" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/bootcode" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/framework/include"  "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\cores\arduino" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\variants\arduino_101" "-IC:\Users\xsegg\Documents\Arduino\libraries\SD\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\SPI\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\Adafruit_MPL3115A2" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Wire\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Servo\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\PID" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\CurieIMU\src" "C:\Users\xsegg\Documents\Arduino\libraries\SD\src\File.cpp" -o "nul"
+"C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\tools\arc-elf32\1.6.9+1.0.1/bin/arc-elf32-g++" -c -mcpu=quarkse_em -mlittle-endian -g -Os -Wall -fno-reorder-functions -fno-asynchronous-unwind-tables -fno-omit-frame-pointer -fno-defer-pop -Wno-unused-but-set-variable -Wno-main -ffreestanding -fno-stack-protector -mno-sdata -ffunction-sections -fdata-sections -fsigned-char  -fno-rtti -fno-exceptions -fcheck-new -D__ARDUINO_ARC__ -std=c++11 -DCONFIG_BLUETOOTH_PERIPHERAL -DCONFIG_BLUETOOTH_CENTRAL -DCONFIG_BLUETOOTH_GATT_CLIENT -w -x c++ -E -CC -DF_CPU=32000000L -DARDUINO=10805 -DARDUINO_ARC32_TOOLS -DARDUINO_ARCH_ARC32 -D__CPU_ARC__ -DCLOCK_SPEED=32 -DCONFIG_SOC_GPIO_32 -DCONFIG_SOC_GPIO_AON -DINFRA_MULTI_CPU_SUPPORT -DCFW_MULTI_CPU_SUPPORT -DHAS_SHARED_MEM "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/common" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/drivers" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/bootcode" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/framework/include"  "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\cores\arduino" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\variants\arduino_101" "-IC:\Users\xsegg\Documents\Arduino\libraries\SD\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\SPI\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\Adafruit_MPL3115A2" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Wire\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Servo\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\PID" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\CurieIMU\src" "C:\Users\xsegg\Documents\Arduino\libraries\SD\src\SD.cpp" -o "nul"
+"C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\tools\arc-elf32\1.6.9+1.0.1/bin/arc-elf32-g++" -c -mcpu=quarkse_em -mlittle-endian -g -Os -Wall -fno-reorder-functions -fno-asynchronous-unwind-tables -fno-omit-frame-pointer -fno-defer-pop -Wno-unused-but-set-variable -Wno-main -ffreestanding -fno-stack-protector -mno-sdata -ffunction-sections -fdata-sections -fsigned-char  -fno-rtti -fno-exceptions -fcheck-new -D__ARDUINO_ARC__ -std=c++11 -DCONFIG_BLUETOOTH_PERIPHERAL -DCONFIG_BLUETOOTH_CENTRAL -DCONFIG_BLUETOOTH_GATT_CLIENT -w -x c++ -E -CC -DF_CPU=32000000L -DARDUINO=10805 -DARDUINO_ARC32_TOOLS -DARDUINO_ARCH_ARC32 -D__CPU_ARC__ -DCLOCK_SPEED=32 -DCONFIG_SOC_GPIO_32 -DCONFIG_SOC_GPIO_AON -DINFRA_MULTI_CPU_SUPPORT -DCFW_MULTI_CPU_SUPPORT -DHAS_SHARED_MEM "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/common" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/drivers" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/bootcode" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/framework/include"  "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\cores\arduino" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\variants\arduino_101" "-IC:\Users\xsegg\Documents\Arduino\libraries\SD\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\SPI\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\Adafruit_MPL3115A2" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Wire\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Servo\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\PID" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\CurieIMU\src" "C:\Users\xsegg\Documents\Arduino\libraries\SD\src\utility\Sd2Card.cpp" -o "nul"
+"C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\tools\arc-elf32\1.6.9+1.0.1/bin/arc-elf32-g++" -c -mcpu=quarkse_em -mlittle-endian -g -Os -Wall -fno-reorder-functions -fno-asynchronous-unwind-tables -fno-omit-frame-pointer -fno-defer-pop -Wno-unused-but-set-variable -Wno-main -ffreestanding -fno-stack-protector -mno-sdata -ffunction-sections -fdata-sections -fsigned-char  -fno-rtti -fno-exceptions -fcheck-new -D__ARDUINO_ARC__ -std=c++11 -DCONFIG_BLUETOOTH_PERIPHERAL -DCONFIG_BLUETOOTH_CENTRAL -DCONFIG_BLUETOOTH_GATT_CLIENT -w -x c++ -E -CC -DF_CPU=32000000L -DARDUINO=10805 -DARDUINO_ARC32_TOOLS -DARDUINO_ARCH_ARC32 -D__CPU_ARC__ -DCLOCK_SPEED=32 -DCONFIG_SOC_GPIO_32 -DCONFIG_SOC_GPIO_AON -DINFRA_MULTI_CPU_SUPPORT -DCFW_MULTI_CPU_SUPPORT -DHAS_SHARED_MEM "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/common" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/drivers" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/bootcode" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/framework/include"  "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\cores\arduino" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\variants\arduino_101" "-IC:\Users\xsegg\Documents\Arduino\libraries\SD\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\SPI\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\Adafruit_MPL3115A2" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Wire\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Servo\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\PID" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\CurieIMU\src" "C:\Users\xsegg\Documents\Arduino\libraries\SD\src\utility\SdFile.cpp" -o "nul"
+"C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\tools\arc-elf32\1.6.9+1.0.1/bin/arc-elf32-g++" -c -mcpu=quarkse_em -mlittle-endian -g -Os -Wall -fno-reorder-functions -fno-asynchronous-unwind-tables -fno-omit-frame-pointer -fno-defer-pop -Wno-unused-but-set-variable -Wno-main -ffreestanding -fno-stack-protector -mno-sdata -ffunction-sections -fdata-sections -fsigned-char  -fno-rtti -fno-exceptions -fcheck-new -D__ARDUINO_ARC__ -std=c++11 -DCONFIG_BLUETOOTH_PERIPHERAL -DCONFIG_BLUETOOTH_CENTRAL -DCONFIG_BLUETOOTH_GATT_CLIENT -w -x c++ -E -CC -DF_CPU=32000000L -DARDUINO=10805 -DARDUINO_ARC32_TOOLS -DARDUINO_ARCH_ARC32 -D__CPU_ARC__ -DCLOCK_SPEED=32 -DCONFIG_SOC_GPIO_32 -DCONFIG_SOC_GPIO_AON -DINFRA_MULTI_CPU_SUPPORT -DCFW_MULTI_CPU_SUPPORT -DHAS_SHARED_MEM "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/common" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/drivers" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/bootcode" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/framework/include"  "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\cores\arduino" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\variants\arduino_101" "-IC:\Users\xsegg\Documents\Arduino\libraries\SD\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\SPI\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\Adafruit_MPL3115A2" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Wire\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Servo\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\PID" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\CurieIMU\src" "C:\Users\xsegg\Documents\Arduino\libraries\SD\src\utility\SdVolume.cpp" -o "nul"
+"C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\tools\arc-elf32\1.6.9+1.0.1/bin/arc-elf32-g++" -c -mcpu=quarkse_em -mlittle-endian -g -Os -Wall -fno-reorder-functions -fno-asynchronous-unwind-tables -fno-omit-frame-pointer -fno-defer-pop -Wno-unused-but-set-variable -Wno-main -ffreestanding -fno-stack-protector -mno-sdata -ffunction-sections -fdata-sections -fsigned-char  -fno-rtti -fno-exceptions -fcheck-new -D__ARDUINO_ARC__ -std=c++11 -DCONFIG_BLUETOOTH_PERIPHERAL -DCONFIG_BLUETOOTH_CENTRAL -DCONFIG_BLUETOOTH_GATT_CLIENT -w -x c++ -E -CC -DF_CPU=32000000L -DARDUINO=10805 -DARDUINO_ARC32_TOOLS -DARDUINO_ARCH_ARC32 -D__CPU_ARC__ -DCLOCK_SPEED=32 -DCONFIG_SOC_GPIO_32 -DCONFIG_SOC_GPIO_AON -DINFRA_MULTI_CPU_SUPPORT -DCFW_MULTI_CPU_SUPPORT -DHAS_SHARED_MEM "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/common" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/drivers" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/bootcode" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/framework/include"  "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\cores\arduino" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\variants\arduino_101" "-IC:\Users\xsegg\Documents\Arduino\libraries\SD\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\SPI\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\Adafruit_MPL3115A2" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Wire\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Servo\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\PID" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\CurieIMU\src" "C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\SPI\src\SPI.cpp" -o "nul"
+"C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\tools\arc-elf32\1.6.9+1.0.1/bin/arc-elf32-g++" -c -mcpu=quarkse_em -mlittle-endian -g -Os -Wall -fno-reorder-functions -fno-asynchronous-unwind-tables -fno-omit-frame-pointer -fno-defer-pop -Wno-unused-but-set-variable -Wno-main -ffreestanding -fno-stack-protector -mno-sdata -ffunction-sections -fdata-sections -fsigned-char  -fno-rtti -fno-exceptions -fcheck-new -D__ARDUINO_ARC__ -std=c++11 -DCONFIG_BLUETOOTH_PERIPHERAL -DCONFIG_BLUETOOTH_CENTRAL -DCONFIG_BLUETOOTH_GATT_CLIENT -w -x c++ -E -CC -DF_CPU=32000000L -DARDUINO=10805 -DARDUINO_ARC32_TOOLS -DARDUINO_ARCH_ARC32 -D__CPU_ARC__ -DCLOCK_SPEED=32 -DCONFIG_SOC_GPIO_32 -DCONFIG_SOC_GPIO_AON -DINFRA_MULTI_CPU_SUPPORT -DCFW_MULTI_CPU_SUPPORT -DHAS_SHARED_MEM "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/common" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/drivers" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/bootcode" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/framework/include"  "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\cores\arduino" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\variants\arduino_101" "-IC:\Users\xsegg\Documents\Arduino\libraries\SD\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\SPI\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\Adafruit_MPL3115A2" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Wire\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Servo\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\PID" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\CurieIMU\src" "C:\Users\xsegg\Documents\Arduino\libraries\Adafruit_MPL3115A2\Adafruit_MPL3115A2.cpp" -o "nul"
+"C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\tools\arc-elf32\1.6.9+1.0.1/bin/arc-elf32-g++" -c -mcpu=quarkse_em -mlittle-endian -g -Os -Wall -fno-reorder-functions -fno-asynchronous-unwind-tables -fno-omit-frame-pointer -fno-defer-pop -Wno-unused-but-set-variable -Wno-main -ffreestanding -fno-stack-protector -mno-sdata -ffunction-sections -fdata-sections -fsigned-char  -fno-rtti -fno-exceptions -fcheck-new -D__ARDUINO_ARC__ -std=c++11 -DCONFIG_BLUETOOTH_PERIPHERAL -DCONFIG_BLUETOOTH_CENTRAL -DCONFIG_BLUETOOTH_GATT_CLIENT -w -x c++ -E -CC -DF_CPU=32000000L -DARDUINO=10805 -DARDUINO_ARC32_TOOLS -DARDUINO_ARCH_ARC32 -D__CPU_ARC__ -DCLOCK_SPEED=32 -DCONFIG_SOC_GPIO_32 -DCONFIG_SOC_GPIO_AON -DINFRA_MULTI_CPU_SUPPORT -DCFW_MULTI_CPU_SUPPORT -DHAS_SHARED_MEM "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/common" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/drivers" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/bootcode" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/framework/include"  "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\cores\arduino" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\variants\arduino_101" "-IC:\Users\xsegg\Documents\Arduino\libraries\SD\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\SPI\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\Adafruit_MPL3115A2" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Wire\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Servo\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\PID" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\CurieIMU\src" "C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Wire\src\Wire.cpp" -o "nul"
+"C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\tools\arc-elf32\1.6.9+1.0.1/bin/arc-elf32-g++" -c -mcpu=quarkse_em -mlittle-endian -g -Os -Wall -fno-reorder-functions -fno-asynchronous-unwind-tables -fno-omit-frame-pointer -fno-defer-pop -Wno-unused-but-set-variable -Wno-main -ffreestanding -fno-stack-protector -mno-sdata -ffunction-sections -fdata-sections -fsigned-char  -fno-rtti -fno-exceptions -fcheck-new -D__ARDUINO_ARC__ -std=c++11 -DCONFIG_BLUETOOTH_PERIPHERAL -DCONFIG_BLUETOOTH_CENTRAL -DCONFIG_BLUETOOTH_GATT_CLIENT -w -x c++ -E -CC -DF_CPU=32000000L -DARDUINO=10805 -DARDUINO_ARC32_TOOLS -DARDUINO_ARCH_ARC32 -D__CPU_ARC__ -DCLOCK_SPEED=32 -DCONFIG_SOC_GPIO_32 -DCONFIG_SOC_GPIO_AON -DINFRA_MULTI_CPU_SUPPORT -DCFW_MULTI_CPU_SUPPORT -DHAS_SHARED_MEM "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/common" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/drivers" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/bootcode" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/framework/include"  "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\cores\arduino" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\variants\arduino_101" "-IC:\Users\xsegg\Documents\Arduino\libraries\SD\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\SPI\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\Adafruit_MPL3115A2" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Wire\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Servo\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\PID" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\CurieIMU\src" "C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Servo\src\Servo.cpp" -o "nul"
+"C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\tools\arc-elf32\1.6.9+1.0.1/bin/arc-elf32-g++" -c -mcpu=quarkse_em -mlittle-endian -g -Os -Wall -fno-reorder-functions -fno-asynchronous-unwind-tables -fno-omit-frame-pointer -fno-defer-pop -Wno-unused-but-set-variable -Wno-main -ffreestanding -fno-stack-protector -mno-sdata -ffunction-sections -fdata-sections -fsigned-char  -fno-rtti -fno-exceptions -fcheck-new -D__ARDUINO_ARC__ -std=c++11 -DCONFIG_BLUETOOTH_PERIPHERAL -DCONFIG_BLUETOOTH_CENTRAL -DCONFIG_BLUETOOTH_GATT_CLIENT -w -x c++ -E -CC -DF_CPU=32000000L -DARDUINO=10805 -DARDUINO_ARC32_TOOLS -DARDUINO_ARCH_ARC32 -D__CPU_ARC__ -DCLOCK_SPEED=32 -DCONFIG_SOC_GPIO_32 -DCONFIG_SOC_GPIO_AON -DINFRA_MULTI_CPU_SUPPORT -DCFW_MULTI_CPU_SUPPORT -DHAS_SHARED_MEM "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/common" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/drivers" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/bootcode" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/framework/include"  "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\cores\arduino" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\variants\arduino_101" "-IC:\Users\xsegg\Documents\Arduino\libraries\SD\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\SPI\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\Adafruit_MPL3115A2" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Wire\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Servo\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\PID" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\CurieIMU\src" "C:\Users\xsegg\Documents\Arduino\libraries\PID\PID_v1.cpp" -o "nul"
+"C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\tools\arc-elf32\1.6.9+1.0.1/bin/arc-elf32-g++" -c -mcpu=quarkse_em -mlittle-endian -g -Os -Wall -fno-reorder-functions -fno-asynchronous-unwind-tables -fno-omit-frame-pointer -fno-defer-pop -Wno-unused-but-set-variable -Wno-main -ffreestanding -fno-stack-protector -mno-sdata -ffunction-sections -fdata-sections -fsigned-char  -fno-rtti -fno-exceptions -fcheck-new -D__ARDUINO_ARC__ -std=c++11 -DCONFIG_BLUETOOTH_PERIPHERAL -DCONFIG_BLUETOOTH_CENTRAL -DCONFIG_BLUETOOTH_GATT_CLIENT -w -x c++ -E -CC -DF_CPU=32000000L -DARDUINO=10805 -DARDUINO_ARC32_TOOLS -DARDUINO_ARCH_ARC32 -D__CPU_ARC__ -DCLOCK_SPEED=32 -DCONFIG_SOC_GPIO_32 -DCONFIG_SOC_GPIO_AON -DINFRA_MULTI_CPU_SUPPORT -DCFW_MULTI_CPU_SUPPORT -DHAS_SHARED_MEM "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/common" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/drivers" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/bootcode" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/framework/include"  "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\cores\arduino" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\variants\arduino_101" "-IC:\Users\xsegg\Documents\Arduino\libraries\SD\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\SPI\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\Adafruit_MPL3115A2" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Wire\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Servo\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\PID" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\CurieIMU\src" "C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\CurieIMU\src\BMI160.cpp" -o "nul"
+"C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\tools\arc-elf32\1.6.9+1.0.1/bin/arc-elf32-g++" -c -mcpu=quarkse_em -mlittle-endian -g -Os -Wall -fno-reorder-functions -fno-asynchronous-unwind-tables -fno-omit-frame-pointer -fno-defer-pop -Wno-unused-but-set-variable -Wno-main -ffreestanding -fno-stack-protector -mno-sdata -ffunction-sections -fdata-sections -fsigned-char  -fno-rtti -fno-exceptions -fcheck-new -D__ARDUINO_ARC__ -std=c++11 -DCONFIG_BLUETOOTH_PERIPHERAL -DCONFIG_BLUETOOTH_CENTRAL -DCONFIG_BLUETOOTH_GATT_CLIENT -w -x c++ -E -CC -DF_CPU=32000000L -DARDUINO=10805 -DARDUINO_ARC32_TOOLS -DARDUINO_ARCH_ARC32 -D__CPU_ARC__ -DCLOCK_SPEED=32 -DCONFIG_SOC_GPIO_32 -DCONFIG_SOC_GPIO_AON -DINFRA_MULTI_CPU_SUPPORT -DCFW_MULTI_CPU_SUPPORT -DHAS_SHARED_MEM "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/common" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/drivers" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/bootcode" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/framework/include"  "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\cores\arduino" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\variants\arduino_101" "-IC:\Users\xsegg\Documents\Arduino\libraries\SD\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\SPI\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\Adafruit_MPL3115A2" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Wire\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Servo\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\PID" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\CurieIMU\src" "C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\CurieIMU\src\CurieIMU.cpp" -o "nul"
+Generating function prototypes...
+"C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\tools\arc-elf32\1.6.9+1.0.1/bin/arc-elf32-g++" -c -mcpu=quarkse_em -mlittle-endian -g -Os -Wall -fno-reorder-functions -fno-asynchronous-unwind-tables -fno-omit-frame-pointer -fno-defer-pop -Wno-unused-but-set-variable -Wno-main -ffreestanding -fno-stack-protector -mno-sdata -ffunction-sections -fdata-sections -fsigned-char  -fno-rtti -fno-exceptions -fcheck-new -D__ARDUINO_ARC__ -std=c++11 -DCONFIG_BLUETOOTH_PERIPHERAL -DCONFIG_BLUETOOTH_CENTRAL -DCONFIG_BLUETOOTH_GATT_CLIENT -w -x c++ -E -CC -DF_CPU=32000000L -DARDUINO=10805 -DARDUINO_ARC32_TOOLS -DARDUINO_ARCH_ARC32 -D__CPU_ARC__ -DCLOCK_SPEED=32 -DCONFIG_SOC_GPIO_32 -DCONFIG_SOC_GPIO_AON -DINFRA_MULTI_CPU_SUPPORT -DCFW_MULTI_CPU_SUPPORT -DHAS_SHARED_MEM "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/common" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/drivers" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/bootcode" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/framework/include"  "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\cores\arduino" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\variants\arduino_101" "-IC:\Users\xsegg\Documents\Arduino\libraries\SD\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\SPI\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\Adafruit_MPL3115A2" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Wire\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Servo\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\PID" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\CurieIMU\src" "C:\Users\xsegg\AppData\Local\Temp\arduino_build_415332\sketch\Guidance_Computer_v0.5.ino.cpp" -o "C:\Users\xsegg\AppData\Local\Temp\arduino_build_415332\preproc\ctags_target_for_gcc_minus_e.cpp"
+"C:\Program Files (x86)\Arduino\tools-builder\ctags\5.8-arduino11/ctags" -u --language-force=c++ -f - --c++-kinds=svpf --fields=KSTtzns --line-directives "C:\Users\xsegg\AppData\Local\Temp\arduino_build_415332\preproc\ctags_target_for_gcc_minus_e.cpp"
+Compiling sketch...
+"C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\tools\arc-elf32\1.6.9+1.0.1/bin/arc-elf32-g++" -c -mcpu=quarkse_em -mlittle-endian -g -Os -Wall -fno-reorder-functions -fno-asynchronous-unwind-tables -fno-omit-frame-pointer -fno-defer-pop -Wno-unused-but-set-variable -Wno-main -ffreestanding -fno-stack-protector -mno-sdata -ffunction-sections -fdata-sections -fsigned-char -MMD -fno-rtti -fno-exceptions -fcheck-new -D__ARDUINO_ARC__ -std=c++11 -DCONFIG_BLUETOOTH_PERIPHERAL -DCONFIG_BLUETOOTH_CENTRAL -DCONFIG_BLUETOOTH_GATT_CLIENT -DF_CPU=32000000L -DARDUINO=10805 -DARDUINO_ARC32_TOOLS -DARDUINO_ARCH_ARC32 -D__CPU_ARC__ -DCLOCK_SPEED=32 -DCONFIG_SOC_GPIO_32 -DCONFIG_SOC_GPIO_AON -DINFRA_MULTI_CPU_SUPPORT -DCFW_MULTI_CPU_SUPPORT -DHAS_SHARED_MEM "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/common" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/drivers" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/bootcode" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\system/libarc32_arduino101/framework/include"  "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\cores\arduino" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\variants\arduino_101" "-IC:\Users\xsegg\Documents\Arduino\libraries\SD\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\SPI\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\Adafruit_MPL3115A2" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Wire\src" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Servo\src" "-IC:\Users\xsegg\Documents\Arduino\libraries\PID" "-IC:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\CurieIMU\src" "C:\Users\xsegg\AppData\Local\Temp\arduino_build_415332\sketch\Guidance_Computer_v0.5.ino.cpp" -o "C:\Users\xsegg\AppData\Local\Temp\arduino_build_415332\sketch\Guidance_Computer_v0.5.ino.cpp.o"
+Guidance_Computer_v0.5:45: error: expected unqualified-id before '[' token
+
+ const int[] LAUNCH_SEQUENCE = {1, 0, 1};
+
+          ^
+
+Guidance_Computer_v0.5:46: error: expected unqualified-id before '[' token
+
+ const int[] ABORT_SEQUENCE = {0, 1, 0};
+
+          ^
+
+Guidance_Computer_v0.5:47: error: expected unqualified-id before '[' token
+
+ const int[] FUEL_LOADING_SEQUENCE = {1, 1, 1};
+
+          ^
+
+Guidance_Computer_v0.5:89: error: expected initializer before 'padCommand'
+
+ CommandType padCommand = CommandType.None;
+
+             ^
+
+Guidance_Computer_v0.5:90: error: expected primary-expression before '.' token
+
+ Stage stage = Stage.On_Pad;
+
+                    ^
+
+Guidance_Computer_v0.5:271: error: variable or field 'throttle' declared void
+
+ void throttle(ThrottleLevel level) {
+
+               ^
+
+Guidance_Computer_v0.5:271: error: 'ThrottleLevel' was not declared in this scope
+
+C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.5\Guidance_Computer_v0.5.ino: In function 'void loop()':
+
+Guidance_Computer_v0.5:124: error: 'padCommand' was not declared in this scope
+
+       padCommand = getPadCommand();
+
+       ^
+
+Guidance_Computer_v0.5:128: error: 'ThrottleLevel' was not declared in this scope
+
+           throttle(ThrottleLevel.High);
+
+                    ^
+
+Guidance_Computer_v0.5:128: error: 'throttle' was not declared in this scope
+
+           throttle(ThrottleLevel.High);
+
+                                      ^
+
+Guidance_Computer_v0.5:133: error: cannot convert 'CommandType' to 'Stage' for argument '1' to 'void stageRocket(Stage)'
+
+           stageRocket(Abort);
+
+                            ^
+
+Guidance_Computer_v0.5:160: error: too few arguments to function 'void steer(double, double, double)'
+
+       steer(pitchOutput, Pitch);
+
+                               ^
+
+C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.5\Guidance_Computer_v0.5.ino:187:6: note: declared here
+
+ void steer(double pitchAngle, double rollAngle, double YawAngle) {
+
+      ^
+
+Guidance_Computer_v0.5:161: error: too few arguments to function 'void steer(double, double, double)'
+
+       steer(rollOutput, Roll);
+
+                             ^
+
+C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.5\Guidance_Computer_v0.5.ino:187:6: note: declared here
+
+ void steer(double pitchAngle, double rollAngle, double YawAngle) {
+
+      ^
+
+Guidance_Computer_v0.5:162: error: too few arguments to function 'void steer(double, double, double)'
+
+       steer(yawOutput, Yaw);
+
+                           ^
+
+C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.5\Guidance_Computer_v0.5.ino:187:6: note: declared here
+
+ void steer(double pitchAngle, double rollAngle, double YawAngle) {
+
+      ^
+
+Guidance_Computer_v0.5:171: error: too few arguments to function 'void steer(double, double, double)'
+
+       steer(pitchOutput, Pitch);
+
+                               ^
+
+C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.5\Guidance_Computer_v0.5.ino:187:6: note: declared here
+
+ void steer(double pitchAngle, double rollAngle, double YawAngle) {
+
+      ^
+
+Guidance_Computer_v0.5:172: error: too few arguments to function 'void steer(double, double, double)'
+
+       steer(rollOutput, Roll);
+
+                             ^
+
+C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.5\Guidance_Computer_v0.5.ino:187:6: note: declared here
+
+ void steer(double pitchAngle, double rollAngle, double YawAngle) {
+
+      ^
+
+Guidance_Computer_v0.5:173: error: too few arguments to function 'void steer(double, double, double)'
+
+       steer(yawOutput, Yaw);
+
+                           ^
+
+C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.5\Guidance_Computer_v0.5.ino:187:6: note: declared here
+
+ void steer(double pitchAngle, double rollAngle, double YawAngle) {
+
+      ^
+
+Guidance_Computer_v0.5:175: error: 'initAltitude' was not declared in this scope
+
+       if(baro.getAltitude() - initAltitude <= CHUTE_DEPLOY_ALTITUDE){
+
+                               ^
+
+Guidance_Computer_v0.5:175: error: 'CHUTE_DEPLOY_ALTITUDE' was not declared in this scope
+
+       if(baro.getAltitude() - initAltitude <= CHUTE_DEPLOY_ALTITUDE){
+
+                                               ^
+
+Guidance_Computer_v0.5:181: error: 'deployChutes' was not declared in this scope
+
+       deployChutes();
+
+                    ^
+
+C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.5\Guidance_Computer_v0.5.ino: In function 'void steer(double, double, double)':
+
+Guidance_Computer_v0.5:190: error: 'yawAngle' was not declared in this scope
+
+   north.write(yawAngle + rollAngle / 2);
+
+               ^
+
+C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.5\Guidance_Computer_v0.5.ino: In function 'double getOptimalPitch()':
+
+C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.5\Guidance_Computer_v0.5.ino:245:10: warning: enumeration value 'Launch' not handled in switch [-Wswitch]
+
+   switch (stage) {
+
+          ^
+
+C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.5\Guidance_Computer_v0.5.ino:245:10: warning: enumeration value 'Burn' not handled in switch [-Wswitch]
+
+C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.5\Guidance_Computer_v0.5.ino:245:10: warning: enumeration value 'Coast' not handled in switch [-Wswitch]
+
+C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.5\Guidance_Computer_v0.5.ino:245:10: warning: enumeration value 'Chute' not handled in switch [-Wswitch]
+
+C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.5\Guidance_Computer_v0.5.ino:250:1: warning: no return statement in function returning non-void [-Wreturn-type]
+
+ }
+
+ ^
+
+C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.5\Guidance_Computer_v0.5.ino: In function 'double getOptimalRoll()':
+
+Guidance_Computer_v0.5:254: error: expected primary-expression before 'if'
+
+   if (stage != Coast && stage != Chute) {
+
+   ^
+
+Guidance_Computer_v0.5:254: error: expected ';' before 'if'
+
+Guidance_Computer_v0.5:256: error: 'else' without a previous 'if'
+
+   } else if (stage = Coast) {
+
+     ^
+
+C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.5\Guidance_Computer_v0.5.ino:256:27: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+
+   } else if (stage = Coast) {
+
+                           ^
+
+Multiple libraries were found for "SD.h"
+C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.5\Guidance_Computer_v0.5.ino:259:1: warning: no return statement in function returning non-void [-Wreturn-type]
+
+ Used: C:\Users\xsegg\Documents\Arduino\libraries\SD
+ }
+
+ Not used: C:\Program Files (x86)\Arduino\libraries\SD
+ ^
+
+Multiple libraries were found for "Servo.h"
+ Used: C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Servo
+C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.5\Guidance_Computer_v0.5.ino: In function 'double getOptimalYaw()':
+
+ Not used: C:\Program Files (x86)\Arduino\libraries\Servo
+C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.5\Guidance_Computer_v0.5.ino:261:10: warning: enumeration value 'Launch' not handled in switch [-Wswitch]
+
+   switch (stage) {
+
+          ^
+
+C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.5\Guidance_Computer_v0.5.ino:261:10: warning: enumeration value 'Burn' not handled in switch [-Wswitch]
+
+C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.5\Guidance_Computer_v0.5.ino:261:10: warning: enumeration value 'Coast' not handled in switch [-Wswitch]
+
+C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.5\Guidance_Computer_v0.5.ino:261:10: warning: enumeration value 'Chute' not handled in switch [-Wswitch]
+
+C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.5\Guidance_Computer_v0.5.ino:266:1: warning: no return statement in function returning non-void [-Wreturn-type]
+
+ }
+
+ ^
+
+C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.5\Guidance_Computer_v0.5.ino: In function 'void stageRocket(Stage)':
+
+Guidance_Computer_v0.5:268: error: 'newStage' cannot be used as a function
+
+   stage = newStage();
+
+                    ^
+
+C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.5\Guidance_Computer_v0.5.ino: At global scope:
+
+Guidance_Computer_v0.5:271: error: variable or field 'throttle' declared void
+
+ void throttle(ThrottleLevel level) {
+
+               ^
+
+Guidance_Computer_v0.5:271: error: 'ThrottleLevel' was not declared in this scope
+
+Using library SD at version 1.2.2 in folder: C:\Users\xsegg\Documents\Arduino\libraries\SD 
+Using library SPI at version 1.0 in folder: C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\SPI 
+Using library Adafruit_MPL3115A2 in folder: C:\Users\xsegg\Documents\Arduino\libraries\Adafruit_MPL3115A2 (legacy)
+Using library Wire at version 1.0 in folder: C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Wire 
+Using library Servo at version 1.0 in folder: C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Servo 
+Using library PID at version 1.2.0 in folder: C:\Users\xsegg\Documents\Arduino\libraries\PID 
+Using library CurieIMU at version 1.0 in folder: C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\CurieIMU 
+exit status 1
+expected unqualified-id before '[' token
