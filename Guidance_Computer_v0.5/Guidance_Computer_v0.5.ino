@@ -14,6 +14,8 @@
 #include <PID_v1.h>
 #include <CurieIMU.h>
 #include <Wire.h>
+#include <Stage.h>
+#include <ThrottleLevel.h>
 
 double pitchSP, rollSP, yawSP;
 double pitchInput, rollInput, yawInput;
@@ -42,12 +44,12 @@ const int FUEL_VALVE_PIN = 12;
 const int LOX_INPUT_VALVE_PIN = 13;
 const int FUEL_INPUT_VALVE_PIN = 14;
 
-const int[] LAUNCH_SEQUENCE = {1, 0, 1};
-const int[] ABORT_SEQUENCE = {0, 1, 0};
-const int[] FUEL_LOADING_SEQUENCE = {1, 1, 1};
+int LAUNCH_SEQUENCE[] = {1, 0, 1};
+int ABORT_SEQUENCE[] = {0, 1, 0};
+int FUEL_LOADING_SEQUENCE[] = {1, 1, 1};
+int NULL_SEQUENCE[] = {0, 0, 0};
 
 Adafruit_MPL3115A2 baro = Adafruit_MPL3115A2();
-double altitude;
 double initAlt;
 
 File main_log;
@@ -70,24 +72,7 @@ boolean baro_found;
 
 float gx, gy, gz;
 
-enum MoveType {
-  Pitch, Roll, Yaw
-};
-
-enum Stage {
- On_Pad, Launch, Burn, Coast, Chute
-};
-
-enum CommandType {
-  Com_Launch, Abort, Fuel_Load, None
-};
-
-enum ThrottleLevels {
-  Off, Full
-}
-
-CommandType padCommand = CommandType.None;
-Stage stage = Stage.On_Pad;
+Stage currentStage = On_Pad;
 
 PID pitch(&pitchInput, &pitchOutput, &pitchSP, pitchP, pitchI, pitchD, DIRECT);
 PID roll(&rollInput, &rollOutput, &rollSP, rollP, rollI, rollD, DIRECT);
@@ -103,6 +88,8 @@ void setup()
   initializeModules();
   setInputs();
 
+  initAlt = baro.getAltitude();
+
   //turn the PID on
   pitch.SetMode(AUTOMATIC);
   roll.SetMode(AUTOMATIC);
@@ -110,7 +97,7 @@ void setup()
 }
 
 void loop() {
-  switch (stage) {
+  switch (currentStage) {
     case On_Pad:
       if (!baro.begin()) {
         if (baro_found) {
@@ -121,74 +108,38 @@ void loop() {
       } else {
         baro_found = true;
       }
-      padCommand = getPadCommand();
-      switch (padCommand) {
-        case Com_Launch:
-          stageRocket(Launch);
-          throttle(ThrottleLevel.High);
-          digitalWrite(IGNITER_PIN, HIGH);
-          break;
-
-        case Abort:
-          stageRocket(Abort);
-          throttle(ThrottleLevel.Off);
-          openInputValves();
-          break;
-
-        case Fuel_Load:
-          throttle(ThrottleLevel.Off);
-          openInputValves();
-          signalPad();
-          break;
-      }
-      break;
-
-    case Launch:
-      setSPs(getOptimalPitch(), getOptimalYaw(), getOptimalRoll());
-      setInputs();
-
-      compute();
-
-      steer(pitchOutput, rollOutput, yawOutput);
-      break;
-    case Burn:
-      setSPs(getOptimalPitch(), getOptimalYaw(), getOptimalRoll());
-      setInputs();
-
-      compute();
-
-      steer(pitchOutput, Pitch);
-      steer(rollOutput, Roll);
-      steer(yawOutput, Yaw);
+      currentStageRocket(getPadCommand());
       break;
 
     case Coast:
-      setSPs(getOptimalPitch(), getOptimalYaw(), getOptimalRoll());
-      setInputs();
-
-      compute();
-
-      steer(pitchOutput, Pitch);
-      steer(rollOutput, Roll);
-      steer(yawOutput, Yaw);
-
-      if(baro.getAltitude() - initAltitude <= CHUTE_DEPLOY_ALTITUDE){
-        stageRocket(Chute);
+      if (baro.getAltitude() - initAlt <= CHUTE_DEPLOY_ALT) {
+        currentStageRocket(Chute);
       }
       break;
 
     case Chute:
       deployChutes();
-      
-    break;
+      break;
   }
+  setSPs(getOptimalPitch(), getOptimalYaw(), getOptimalRoll());
+  setInputs();
+
+  compute();
+  steer(pitchOutput, rollOutput, yawOutput);
 }
 
-void steer(double pitchAngle, double rollAngle, double YawAngle) {
-  east.write(pitchAngle + rollAngle / 2);
-  west.write(pitchAngle + rollAngle / 2);
-  north.write(yawAngle + rollAngle / 2);
-  south.write(yawAngle + rollAngle / 2);
+void steer(double pitchAngle, double rollAngle, double yawAngle) {
+  if (currentStage != Chute) {
+    east.write(pitchAngle + rollAngle / 2);
+    west.write(pitchAngle + rollAngle / 2);
+    north.write(yawAngle + rollAngle / 2);
+    south.write(yawAngle + rollAngle / 2);
+  } else {
+    east.write(-(pitchAngle + rollAngle / 2));
+    west.write(-(pitchAngle + rollAngle / 2));
+    north.write(-(yawAngle + rollAngle / 2));
+    south.write(-(yawAngle + rollAngle / 2));
+  }
 }
 
 void setAllFins(double angle) {
@@ -240,32 +191,23 @@ double getAltitude() {
   return baro.getAltitude() - initAlt;
 }
 
-
 double getOptimalPitch() {
-  switch (stage) {
-    case On_Pad:
-
-      break;
+  double p;
+  if (currentStage != Coast) {
+    p = 90;
+  } else {
+    p = getPitch() + .05;
   }
+  return p;
 }
 double getOptimalRoll() {
-  double p;
-  p =
-  if (stage != Coast && stage != Chute) {
-    return 90;
-  } else if (stage = Coast) {
-
-  }
+  return 0;
 }
 double getOptimalYaw() {
-  switch (stage) {
-    case On_Pad:
-
-      break;
-  }
+  return 90;
 }
-void stageRocket(Stage newStage) {
-  stage = newStage();
+void currentStageRocket(Stage newStage) {
+  currentStage = newStage;
 }
 
 void throttle(ThrottleLevel level) {
@@ -281,9 +223,14 @@ void throttle(ThrottleLevel level) {
   }
 }
 
+void deployChutes() {
+  digitalWrite(PARACHUTE_ONE_PIN, HIGH);
+  digitalWrite(PARACHUTE_TWO_PIN, HIGH);
+}
+
 void openInputValves() {
-  digitalWrite(LOX_PURGE_VALVE, HIGH);
-  digitalWrite(FUEL_PURGE_VALVE, HIGH);
+  digitalWrite(LOX_INPUT_VALVE_PIN, HIGH);
+  digitalWrite(FUEL_INPUT_VALVE_PIN, HIGH);
 }
 
 void signalPad() {
@@ -298,12 +245,27 @@ void signalPad() {
   pinMode(LAUNCHPAD_COM_PIN, INPUT);
 }
 
-CommandType getPadCommand() {
-  CommandType command;
+boolean arrayEquals(int array_one[], int array_two[]) {
+  boolean equal = true;
+
+  if (sizeof(array_one) != sizeof(array_two)) {
+    equal = false;
+  }
+
+  for (int i = 0; i < sizeof(array_one); i++) {
+    if (array_one[i] != array_two[i]) {
+      equal = false;
+    }
+  }
+  return equal;
+}
+
+Stage getPadCommand() {
+  Stage command;
   double initMillis = millis();
   double currentMillis;
   int counter = 0;
-  int[] commandSequence = new int[3];
+  int commandSequence[] = {0, 0, 0};
   if (digitalRead(LAUNCHPAD_COM_PIN) > 0) {
     do {
       currentMillis = millis();
@@ -315,28 +277,28 @@ CommandType getPadCommand() {
         counter++;
       }
       signalPad();
-    } while (commandSequence[2] != null && currentMillis - initMillis < 500);
+    } while (commandSequence[2] != NULL_SEQUENCE[2] && currentMillis - initMillis < 500);
 
     if (currentMillis - initMillis > 500) {
-      return CommandType.None;
+      command = currentStage;
     }
 
-    if (commandSequence = LAUNCH_SEQUENCE) {
-      return CommandType.Launch;
-    } else if (commandSequence = ABORT_SEQUENCE) {
-      return CommandType.Abort;
-    } else if (commandSequence = FUEL_LOADING_SEQUENCE) {
-      return CommandType.Fuel_Load;
+    if (arrayEquals(commandSequence, LAUNCH_SEQUENCE)) {
+      return Launch;
+    } else if (arrayEquals(commandSequence, ABORT_SEQUENCE)) {
+      return Abort;
+    } else if (arrayEquals(commandSequence, FUEL_LOADING_SEQUENCE)) {
+      return Loading_Fuel;
     } else {
       signalPad();
       delay(90);
       signalPad();
       delay(90);
       signalPad();
-      command = getCommandSequence();
+      command = getPadCommand();
     }
   } else {
-    command = CommandType.None;
+    command = currentStage;
   }
   return command;
 }
@@ -350,7 +312,7 @@ void logPrint(String message, boolean ln) {
     Serial.print(message);
     main_log.print(message);
   }
-  main_log = SD.close();
+  main_log.close();
 }
 
 void initializeModules() {
@@ -383,7 +345,7 @@ void initializeModules() {
   logPrint("Gyro initialization complete", true);
   logPrint("", true);
 
-  logPrint("Initializing accelerometer...");
+  logPrint("Initializing accelerometer...", true);
   CurieIMU.setAccelerometerRange(2);
   logPrint("Accelerometer initialization complete", true);
 
@@ -414,7 +376,7 @@ void initializeModules() {
   delay(90);
   digitalWrite(PARACHUTE_ONE_PIN, LOW);
   pinMode(PARACHUTE_ONE_PIN, INPUT);
-  while (digitalRead(PARACHUTE_ONE_PIN) = 0);
+  while (digitalRead(PARACHUTE_ONE_PIN) == 0);
   logPrint("Chute 1 initialized", true);
 
   logPrint("Contacting chute 2...", true);
@@ -424,7 +386,7 @@ void initializeModules() {
   delay(90);
   digitalWrite(PARACHUTE_TWO_PIN, LOW);
   pinMode(PARACHUTE_TWO_PIN, INPUT);
-  while (digitalRead(PARACHUTE_TWO_PIN) = 0);
+  while (digitalRead(PARACHUTE_TWO_PIN) == 0);
   logPrint("Chute 2 initialized", true);
   logPrint("Chutes initialized", true);
   logPrint("", true);
@@ -446,7 +408,7 @@ void initializeModules() {
   delay(90);
   digitalWrite(LAB_COM_PIN, LOW);
   pinMode(LAB_COM_PIN, INPUT);
-  while (digitalRead(LAB_COM_PIN) = 0);
+  while (digitalRead(LAB_COM_PIN) == 0);
   logPrint("Lab contact established", true);
 
   logPrint("All modules initialized", true);
