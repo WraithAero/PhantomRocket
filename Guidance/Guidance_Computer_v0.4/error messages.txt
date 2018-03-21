@@ -1,0 +1,49 @@
+
+
+
+
+
+
+
+
+
+
+C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.2\Guidance_Computer_v0.2.ino: In function 'int getLift()':
+
+Guidance_Computer_v0.2:165: error: invalid operands of types 'double' and 'int' to binary 'operator^'
+
+   lift *= (getDensity() * air_speed^2);
+
+                                     ^
+
+C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.2\Guidance_Computer_v0.2.ino: In function 'void writeToLog(String, int)':
+
+C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.2\Guidance_Computer_v0.2.ino:214:18: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+
+   if(lnOrNot = NO){
+
+                  ^
+
+C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.2\Guidance_Computer_v0.2.ino:217:24: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+
+   else if(lnOrNot = YES){
+
+                        ^
+
+C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.2\Guidance_Computer_v0.2.ino: In function 'void loop()':
+
+C:\Users\xsegg\Dropbox\Rocket Stuff\Guidance\Guidance_Computer_v0.2\Guidance_Computer_v0.2.ino:253:22: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+
+   if(activated = true){
+
+                      ^
+
+Multiple libraries were found for "SD.h"
+ Used: C:\Users\xsegg\Documents\Arduino\libraries\SD
+ Not used: C:\Program Files (x86)\Arduino\libraries\SD
+Multiple libraries were found for "Servo.h"
+ Used: C:\Users\xsegg\AppData\Local\Arduino15\packages\Intel\hardware\arc32\2.0.2\libraries\Servo
+ Not used: C:\Program Files (x86)\Arduino\libraries\Servo
+exit status 1
+invalid operands of types 'double' and 'int' to binary 'operator^'
+
