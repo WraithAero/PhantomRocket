@@ -1,11 +1,13 @@
 /*
-   SD card attached to SPI bus as follows:
+ ** SD card attached to SPI bus as follows:
  ** MOSI - pin 11
  ** MISO - pin 12
  ** CLK - pin 13
  ** CS - see variable SD_PIN (for MKRZero SD: SDCARD_SS_PIN)
-*/
 
+ **Thermocouple MAX31855 Chip attached as follows:
+ **
+*/
 
 #include <SD.h>
 #include <SPI.h>
@@ -16,6 +18,7 @@
 #include <Wire.h>
 #include <Stage.h>
 #include <ThrottleLevel.h>
+#include <Adafruit_MAX31855.h>
 
 double pitchSP, rollSP, yawSP;
 double pitchInput, rollInput, yawInput;
@@ -43,6 +46,8 @@ const int LOX_VALVE_PIN = 11;
 const int FUEL_VALVE_PIN = 12;
 const int LOX_INPUT_VALVE_PIN = 13;
 const int FUEL_INPUT_VALVE_PIN = 14;
+const int NOZZLE_THERMOCOIL_PIN = 15;
+const int CC_THERMOCOIL_PIN = 16;
 
 int LAUNCH_SEQUENCE[] = {1, 0, 1};
 int ABORT_SEQUENCE[] = {0, 1, 0};
@@ -50,6 +55,8 @@ int FUEL_LOADING_SEQUENCE[] = {1, 1, 1};
 int NULL_SEQUENCE[] = {0, 0, 0};
 
 Adafruit_MPL3115A2 baro = Adafruit_MPL3115A2();
+Adafruit_MAX31855 nozzle_thermocoil = Adafruit_MAX31855(NOZZLE_THERMOCOIL_PIN);
+Adafruit_MAX31855 cc_thermocoil = Adafruit_MAX31855(CC_THERMOCOIL_PIN);
 double initAlt;
 
 File main_log;
@@ -82,6 +89,11 @@ Servo north;
 Servo east;
 Servo south;
 Servo west;
+
+int northAngle;
+int eastAngle;
+int southAngle;
+int westAngle;
 
 void setup()
 {
@@ -130,23 +142,23 @@ void loop() {
 
 void steer(double pitchAngle, double rollAngle, double yawAngle) {
   if (currentStage != Chute) {
-    east.write(pitchAngle + rollAngle / 2);
-    west.write(pitchAngle + rollAngle / 2);
-    north.write(yawAngle + rollAngle / 2);
-    south.write(yawAngle + rollAngle / 2);
+    writeEast(pitchAngle + rollAngle / 2);
+    writeWest(pitchAngle + rollAngle / 2);
+    writeNorth(yawAngle + rollAngle / 2);
+    writeSouth(yawAngle + rollAngle / 2);
   } else {
-    east.write(-(pitchAngle + rollAngle / 2));
-    west.write(-(pitchAngle + rollAngle / 2));
-    north.write(-(yawAngle + rollAngle / 2));
-    south.write(-(yawAngle + rollAngle / 2));
+    writeEast(-(pitchAngle + rollAngle / 2));
+    writeWest(-(pitchAngle + rollAngle / 2));
+    writeNorth(-(yawAngle + rollAngle / 2));
+    writeSouth(-(yawAngle + rollAngle / 2));
   }
 }
 
 void setAllFins(double angle) {
-  north.write(angle);
-  east.write(angle);
-  south.write(angle);
-  west.write(angle);
+  writeNorth(angle);
+  writeEast(angle);
+  writeSouth(angle);
+  writeWest(angle);
   delay((angle * FIN_DEGREES_PER_SECOND) * 1000);
 }
 
@@ -233,6 +245,34 @@ void openInputValves() {
   digitalWrite(FUEL_INPUT_VALVE_PIN, HIGH);
 }
 
+int getNorth() {
+  return northAngle;
+}
+int getEast() {
+  return eastAngle;
+}
+int getSouth() {
+  return southAngle;
+}
+int getWest() {
+  return westAngle;
+}
+int writeNorth(int angle) {
+  north.write(angle);
+  northAngle = angle;
+}
+int writeEast(int angle) {
+  east.write(angle);
+  eastAngle = angle;
+}
+int writeSouth(int angle) {
+  south.write(angle);
+  southAngle = angle;
+}
+int writeWest(int angle) {
+  south.write(angle);
+  westAngle = angle;
+}
 void signalPad() {
   pinMode(LAUNCHPAD_COM_PIN, OUTPUT);
   digitalWrite(LAUNCHPAD_COM_PIN, HIGH);
