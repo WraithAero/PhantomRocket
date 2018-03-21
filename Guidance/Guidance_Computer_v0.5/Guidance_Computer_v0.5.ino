@@ -120,12 +120,12 @@ void loop() {
       } else {
         baro_found = true;
       }
-      currentStageRocket(getPadCommand());
+      stageRocket(getPadCommand());
       break;
 
     case Coast:
       if (baro.getAltitude() - initAlt <= CHUTE_DEPLOY_ALT) {
-        currentStageRocket(Chute);
+        stageRocket(Chute);
       }
       break;
 
@@ -218,8 +218,10 @@ double getOptimalRoll() {
 double getOptimalYaw() {
   return 90;
 }
-void currentStageRocket(Stage newStage) {
+void stageRocket(Stage newStage) {
   currentStage = newStage;
+  logPrint("Stage: ", false);
+  logPrint(newStage);
 }
 
 void throttle(ThrottleLevel level) {
@@ -309,12 +311,14 @@ Stage getPadCommand() {
   if (digitalRead(LAUNCHPAD_COM_PIN) > 0) {
     do {
       currentMillis = millis();
-      if (digitalRead(LAUNCHPAD_COM_PIN) > 0 && currentMillis - initMillis < counter + 1 * 110) {
-        commandSequence[counter] = 1;
-        counter++;
-      } else {
-        commandSequence[counter] = 0;
-        counter++;
+      if (currentMillis - initMillis < counter + 1 * 110) {
+        if (digitalRead(LAUNCHPAD_COM_PIN) > 0) {
+          commandSequence[counter] = 1;
+          counter++;
+        } else {
+          commandSequence[counter] = 0;
+          counter++;
+        }
       }
       signalPad();
     } while (commandSequence[2] != NULL_SEQUENCE[2] && currentMillis - initMillis < 500);
