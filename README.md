@@ -6,7 +6,7 @@
 
 <h2>Current libraries</h2>
 <ul>
-<li>Guidance: v0.5</li>
+<li>Guidance: v0.6</li>
 <li>PadOS: NA (yet)</li>
 <li>LabOS: NA (yet)</li>
 <li>Engine Manager: NA (yet)</li>
