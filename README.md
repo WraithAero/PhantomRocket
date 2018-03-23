@@ -15,7 +15,7 @@
 <p></p>
 <h2>Legacy libraries</h2>
 <ul>
-<li>Guidance: none that works! (yet(</li>
+<li>Guidance: none that works! (yet)</li>
 <li>PadOS: none that works! (yet)</li>
 <li>LabOS: none that works! (yet)</li>
 <li>Engine Manager: none that works! (yet)</li>
