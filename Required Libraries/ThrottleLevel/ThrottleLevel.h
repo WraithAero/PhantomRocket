@@ -1,0 +1,3 @@
+enum ThrottleLevel {
+  Off, Full
+};
