@@ -107,6 +107,10 @@ void loop() {
     case Chute:
       deployChutes();
       break;
+    case Abort:
+      seperateCommand();
+      deployChutes();
+      break;
   }
   setSPs(getOptimalPitch(), getOptimalYaw(), getOptimalRoll());
   setInputs();
@@ -176,6 +180,10 @@ float getYaw() {
 
 double getAltitude() {
   return baro.getAltitude() - initAlt;
+}
+
+double getCCTemp(){
+  return cc_thermocoil.get();
 }
 
 double getOptimalPitch() {
