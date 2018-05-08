@@ -30,8 +30,8 @@ int FUEL_LOADING_SEQUENCE[] = {1, 1, 1};
 int NULL_SEQUENCE[] = {0, 0, 0};
 
 Adafruit_MPL3115A2 baro = Adafruit_MPL3115A2();
-Adafruit_MAX31855 nozzle_thermocoil = Adafruit_MAX31855(NOZZLE_THERMOCOIL_PIN);
-Adafruit_MAX31855 cc_thermocoil = Adafruit_MAX31855(CC_THERMOCOIL_PIN);
+Adafruit_MAX31855 nozzle_thermocoil = Adafruit_MAX31855(13, NOZZLE_THERMOCOIL_PIN);
+Adafruit_MAX31855 cc_thermocoil = Adafruit_MAX31855(13, CC_THERMOCOIL_PIN);
 double initAlt;
 
 File main_log;
@@ -108,7 +108,7 @@ void loop() {
       deployChutes();
       break;
     case Abort:
-      seperateCommand();
+      seperateStages();
       deployChutes();
       break;
   }
@@ -145,6 +145,10 @@ void setSPs(double newPitchSP, double newRollSP, double newYawSP) {
   pitchSP = newPitchSP;
   rollSP = newRollSP;
   yawSP = newYawSP;
+}
+
+void seperateStages(){
+  
 }
 
 void compute() {
