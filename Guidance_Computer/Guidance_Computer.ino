@@ -20,6 +20,7 @@
 #include <ThrottleLevel.h>
 #include <Adafruit_MAX31855.h>
 #include <PhantomConstants.h>
+#include <PhantomLibraries.h>
 
 double pitchSP, rollSP, yawSP;
 double pitchInput, rollInput, yawInput;
@@ -226,7 +227,6 @@ void throttle(ThrottleLevel level) {
 
 void deployChutes() {
   digitalWrite(PARACHUTE_ONE_PIN, HIGH);
-  digitalWrite(PARACHUTE_TWO_PIN, HIGH);
 }
 
 void openInputValves() {
