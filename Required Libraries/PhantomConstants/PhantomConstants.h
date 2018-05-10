@@ -1,3 +1,11 @@
+#ifndef PhantomConstants_h
+#define PhantomConstants_h
+
+#include "Arduino.h"
+
+class PhantomConstants {
+	
+public:
 const int NORTH_PIN = 1;
 const int EAST_PIN = 2;
 const int SOUTH_PIN = 3;
@@ -26,4 +34,6 @@ const int CC_THERMOCOIL_PIN = 16;
 const int CLK_PIN = 17;
 const int MOSI_PIN = 18;
 const int MISO_PIN = 19;
-const int 
+}
+
+#endif

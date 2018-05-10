@@ -3,10 +3,12 @@
 
 #include "Arduino.h"
 #include "ThrottleLevel.h"
+#include "PhantomConstants.h"
+#include "PhantomModules.h"
 
 class PhantomGuidance {
 	public:
-	PhantomGuidance(PhantomConstants constants, PhantomSensors sensors);
+	PhantomGuidance(PhantomConstants constants, PhantomModules modules);
 	
 	void steer(double pitchAngle, double rollAngle, double yawAngle);
 	void setAllFins(double angle);
@@ -23,6 +25,8 @@ class PhantomGuidance {
 	void writeSouth(int angle);
 	void writeWest(int angle);
 	
+	void stageRocket();
+	void seperateStages(Stage stage);
 };
 
 #endif

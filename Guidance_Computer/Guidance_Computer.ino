@@ -9,18 +9,15 @@
  **
 */
 
-#include <SD.h>
-#include <SPI.h>
-#include <Adafruit_MPL3115A2.h>
 #include <Servo.h>
 #include <PID_v1.h>
-#include <CurieIMU.h>
-#include <Wire.h>
 #include <Stage.h>
 #include <ThrottleLevel.h>
-#include <Adafruit_MAX31855.h>
 #include <PhantomConstants.h>
-#include <PhantomLibraries.h>
+#include <PhantomModules.h>
+#include <PhantomGuidance.h>
+#include <PhantomUtils.h>
+#include <
 
 double pitchSP, rollSP, yawSP;
 double pitchInput, rollInput, yawInput;
