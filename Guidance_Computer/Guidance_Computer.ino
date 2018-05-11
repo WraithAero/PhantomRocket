@@ -17,7 +17,6 @@
 #include <PhantomModules.h>
 #include <PhantomGuidance.h>
 #include <PhantomUtils.h>
-#include <
 
 double pitchSP, rollSP, yawSP;
 double pitchInput, rollInput, yawInput;
@@ -27,12 +26,7 @@ int ABORT_SEQUENCE[] = {0, 1, 0};
 int FUEL_LOADING_SEQUENCE[] = {1, 1, 1};
 int NULL_SEQUENCE[] = {0, 0, 0};
 
-Adafruit_MPL3115A2 baro = Adafruit_MPL3115A2();
-Adafruit_MAX31855 nozzle_thermocoil = Adafruit_MAX31855(13, NOZZLE_THERMOCOIL_PIN);
-Adafruit_MAX31855 cc_thermocoil = Adafruit_MAX31855(13, CC_THERMOCOIL_PIN);
-double initAlt;
 
-File main_log;
 
 //Specify the links and initial tuning parameters
 double pitchP = 2;
@@ -58,15 +52,6 @@ PID pitch(&pitchInput, &pitchOutput, &pitchSP, pitchP, pitchI, pitchD, DIRECT);
 PID roll(&rollInput, &rollOutput, &rollSP, rollP, rollI, rollD, DIRECT);
 PID yaw(&yawInput, &yawOutput, &yawSP, yawP, yawI, yawD, DIRECT);
 
-Servo north;
-Servo east;
-Servo south;
-Servo west;
-
-int northAngle;
-int eastAngle;
-int southAngle;
-int westAngle;
 
 void setup()
 {
@@ -160,49 +145,6 @@ void setInputs() {
   rollInput = getRoll();
   yawInput = getYaw();
 }
-
-void setGyro() {
-  CurieIMU.readGyroScaled(gx, gy, gz);
-}
-
-float getPitch() {
-  setGyro();
-  return gx;
-}
-
-float getRoll() {
-  setGyro();
-  return gy;
-}
-
-float getYaw() {
-  setGyro();
-  return gz;
-}
-
-double getAltitude() {
-  return baro.getAltitude() - initAlt;
-}
-
-double getCCTemp(){
-  return cc_thermocoil.get();
-}
-
-double getOptimalPitch() {
-  double p;
-  if (currentStage != Coast) {
-    p = 90;
-  } else {
-    p = getPitch() + .05;
-  }
-  return p;
-}
-double getOptimalRoll() {
-  return 0;
-}
-double getOptimalYaw() {
-  return 90;
-}
 void stageRocket(Stage newStage) {
   currentStage = newStage;
   logPrint("Stage: ", false);
@@ -221,28 +163,6 @@ void throttle(ThrottleLevel level) {
       break;
   }
 }
-
-void deployChutes() {
-  digitalWrite(PARACHUTE_ONE_PIN, HIGH);
-}
-
-void openInputValves() {
-  digitalWrite(LOX_INPUT_VALVE_PIN, HIGH);
-  digitalWrite(FUEL_INPUT_VALVE_PIN, HIGH);
-}
-
-int getNorth() {
-  return northAngle;
-}
-int getEast() {
-  return eastAngle;
-}
-int getSouth() {
-  return southAngle;
-}
-int getWest() {
-  return westAngle;
-}
 int writeNorth(int angle) {
   north.write(angle);
   northAngle = angle;
@@ -259,6 +179,7 @@ int writeWest(int angle) {
   south.write(angle);
   westAngle = angle;
 }
+
 void signalPad() {
   pinMode(LAUNCHPAD_COM_PIN, OUTPUT);
   digitalWrite(LAUNCHPAD_COM_PIN, HIGH);
