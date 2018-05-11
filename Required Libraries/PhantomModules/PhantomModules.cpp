@@ -2,6 +2,7 @@
 #include "PhantomModules.h"
 #include "PhantomConstants.h"
 #include "PhantomUtils.h"
+#include "PhantomGuidance.h"
 #include "SD.h"
 #include "SPI.h"
 #include "Wire.h"
@@ -47,15 +48,15 @@ PhantomModules::PhantomModules(PhantomConstants constants, PhantomUtils utils){
   _utils.logPrint("Accelerometer initialization complete", true);
 
   _utils.logPrint("Initializing fin servos...", true);
-  north.attach(_constants.NORTH_PIN);
-  east.attach(_constants.EAST_PIN);
-  south.attach(_constants.SOUTH_PIN);
-  west.attach(_constants._constants.WEST_PIN);
-  setAllFins(_constants.STANDARD_FIN_VALUE);
+  _guidance.north.attach(_constants.NORTH_PIN);
+  _guidance.east.attach(_constants.EAST_PIN);
+  _guidance.south.attach(_constants.SOUTH_PIN);
+  _guidance.west.attach(_constants._constants.WEST_PIN);
+  _guidance.setAllFins(_constants.STANDARD_FIN_VALUE);
   _utils.logPrint("Servo initialization complete. Testing fins...", true);
-  setAllFins(_constants.NEAR_FIN_VALUE);
-  setAllFins(_constants.FAR_FIN_VALUE);
-  setAllFins(_constants.STANDARD_FIN_VALUE);
+  _guidance.setAllFins(_constants.NEAR_FIN_VALUE);
+  _guidance.setAllFins(_constants.FAR_FIN_VALUE);
+  _guidance.setAllFins(_constants.STANDARD_FIN_VALUE);
   _utils.logPrint("Fin Test Complete", true);
   _utils.logPrint("", true);
 
@@ -65,8 +66,8 @@ PhantomModules::PhantomModules(PhantomConstants constants, PhantomUtils utils){
   _utils.logPrint("Barometer initialization complete", true);
   _utils.logPrint("", true);
 
-  _utils.logPrint("Initializing chutes...", true);
-  _utils.logPrint("Contacting chute 1...", true);
+  _utils.logPrint("Initializing chute...", true);
+  _utils.logPrint("Contacting chute ...", true);
   pinMode(_constants.PARACHUTE_PIN, OUTPUT);
   digitalWrite(_constants.PARACHUTE_PIN, HIGH);
   _utils.logPrint("Waiting for response...", true);
@@ -74,7 +75,7 @@ PhantomModules::PhantomModules(PhantomConstants constants, PhantomUtils utils){
   digitalWrite(_constants.PARACHUTE_PIN, LOW);
   pinMode(_constants.PARACHUTE_PIN, INPUT);
   while (digitalRead(_constants.PARACHUTE_PIN) == 0);
-  _utils.logPrint("Chute 1 initialized", true);
+  _utils.logPrint("Chute initialized", true);
 
   _utils.logPrint("Initializing igniter and valves", true);
   _utils.logPrint("Stand clear of rocket in case of mislight", true);
@@ -101,24 +102,8 @@ PhantomModules::PhantomModules(PhantomConstants constants, PhantomUtils utils){
   _utils.logPrint("", true);
 }
 
-double PhantomModules::getNorth(){
-	return northAngle;
-}
-
-double PhantomModules::getEast(){
-	return eastAngle;
-}
-
-double PhantomModules::getSouth(){
-	return southAngle;
-}
-
-double PhantomModules::getWest(){
-	return westAngle;
-}
-
 void PhantomModules::deployChutes(){
-	digitalWrite(_constants._constants._constants.PARACHUTE_PIN, HIGH);
+	digitalWrite(_constants.PARACHUTE_PIN, HIGH);
 }
 
 void PhantomModules::openInputValves(){

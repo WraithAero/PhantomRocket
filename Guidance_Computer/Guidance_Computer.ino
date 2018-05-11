@@ -9,8 +9,6 @@
  **
 */
 
-#include <Servo.h>
-#include <PID_v1.h>
 #include <Stage.h>
 #include <ThrottleLevel.h>
 #include <PhantomConstants.h>
@@ -18,48 +16,11 @@
 #include <PhantomGuidance.h>
 #include <PhantomUtils.h>
 
-double pitchSP, rollSP, yawSP;
-double pitchInput, rollInput, yawInput;
-
-int LAUNCH_SEQUENCE[] = {1, 0, 1};
-int ABORT_SEQUENCE[] = {0, 1, 0};
-int FUEL_LOADING_SEQUENCE[] = {1, 1, 1};
-int NULL_SEQUENCE[] = {0, 0, 0};
-
-//Specify the links and initial tuning parameters
-double pitchP = 2;
-double pitchI = 5;
-double pitchD = 3;
-double rollP = 2;
-double rollI = 5;
-double rollD = 3;
-double yawP = 2;
-double yawI = 5;
-double yawD = 3;
-double pitchOutput;
-double rollOutput;
-double yawOutput;
-
 boolean baro_found;
-
-float gx, gy, gz;
-
-Stage currentStage = On_Pad;
-
-PID pitch(&pitchInput, &pitchOutput, &pitchSP, pitchP, pitchI, pitchD, DIRECT);
-PID roll(&rollInput, &rollOutput, &rollSP, rollP, rollI, rollD, DIRECT);
-PID yaw(&yawInput, &yawOutput, &yawSP, yawP, yawI, yawD, DIRECT);
-
 
 void setup()
 {
-  initializeModules();
-  setInputs();
-
-  //turn the PID on
-  pitch.SetMode(AUTOMATIC);
-  roll.SetMode(AUTOMATIC);
-  yaw.SetMode(AUTOMATIC);
+  
 }
 
 void loop() {
@@ -91,85 +52,7 @@ void loop() {
       deployChutes();
       break;
   }
-  setSPs(getOptimalPitch(), getOptimalYaw(), getOptimalRoll());
-  setInputs();
-
-  compute();
-  steer(pitchOutput, rollOutput, yawOutput);
-}
-
-void steer(double pitchAngle, double rollAngle, double yawAngle) {
-  if (currentStage != Chute) {
-    writeEast(pitchAngle + rollAngle / 2);
-    writeWest(pitchAngle + rollAngle / 2);
-    writeNorth(yawAngle + rollAngle / 2);
-    writeSouth(yawAngle + rollAngle / 2);
-  } else {
-    writeEast(-(pitchAngle + rollAngle / 2));
-    writeWest(-(pitchAngle + rollAngle / 2));
-    writeNorth(-(yawAngle + rollAngle / 2));
-    writeSouth(-(yawAngle + rollAngle / 2));
-  }
-}
-
-void setAllFins(double angle) {
-  writeNorth(angle);
-  writeEast(angle);
-  writeSouth(angle);
-  writeWest(angle);
-  delay((angle * FIN_DEGREES_PER_SECOND) * 1000);
-}
-
-void setSPs(double newPitchSP, double newRollSP, double newYawSP) {
-  pitchSP = newPitchSP;
-  rollSP = newRollSP;
-  yawSP = newYawSP;
-}
-
-void compute() {
-  pitch.Compute();
-  roll.Compute();
-  yaw.Compute();
-}
-
-void setInputs() {
-  pitchInput = getPitch();
-  rollInput = getRoll();
-  yawInput = getYaw();
-}
-void stageRocket(Stage newStage) {
-  currentStage = newStage;
-  logPrint("Stage: ", false);
-  printStage(newStage, true);
-}
-
-void throttle(ThrottleLevel level) {
-  switch (level) {
-    case Off:
-      digitalWrite(LOX_VALVE_PIN, LOW);
-      digitalWrite(FUEL_VALVE_PIN, LOW);
-      break;
-    case Full:
-      digitalWrite(LOX_VALVE_PIN, HIGH);
-      digitalWrite(FUEL_VALVE_PIN, HIGH);
-      break;
-  }
-}
-int writeNorth(int angle) {
-  north.write(angle);
-  northAngle = angle;
-}
-int writeEast(int angle) {
-  east.write(angle);
-  eastAngle = angle;
-}
-int writeSouth(int angle) {
-  south.write(angle);
-  southAngle = angle;
-}
-int writeWest(int angle) {
-  south.write(angle);
-  westAngle = angle;
+  
 }
 
 void signalPad() {

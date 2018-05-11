@@ -34,6 +34,15 @@ const int CC_THERMOCOIL_PIN = 16;
 const int CLK_PIN = 17;
 const int MOSI_PIN = 18;
 const int MISO_PIN = 19;
+const int STAGE_SEP_PIN = 20;
+
+const int LOX_PRESSURE_PIN = A1;
+
+
+int LAUNCH_SEQUENCE[] = {1, 0, 1};
+int ABORT_SEQUENCE[] = {0, 1, 0};
+int FUEL_LOADING_SEQUENCE[] = {1, 1, 1};
+int NULL_SEQUENCE[] = {0, 0, 0};
 }
 
 #endif
