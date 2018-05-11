@@ -124,23 +124,36 @@ void PhantomGuidance::guidanceLoop(Stage newStage){
 			break;
 		case Loading_Fuel:
 			_modules.openInputValves();
+			if(!loaded){
+				_utils.logPrint("Loading fuel...");
+				loaded = true;
+			}
+			printTelemetry(true);
 			break;
 		case Launch:
 			throttle(ThrottleLevel.Full);
 			delay(10);
 			digitalWrite(_constants.IGNITER_PIN, HIGH);
-			guidanceLoop(Stage.Burn);
+			stageRocket(Stage.Burn);
+			executePIDs();
 			break;
 		case Burn:
 			executePID();
-			if()
+			if(_modules.getLOXTankPressure <= LOX_EMPTY_PRESSURE && _modules.getFuelTankPressure < _constants.FUEL_EMPTY_PRESSURE){
+				stageRocket(Stage.Coast);
+			}
 			break;
 	}
 }
 
+void PhantomGuidance::stageRocket(Stage newStage){
+	currentStage = newStage;
+	_utils.logPrint("Staging to: ", false");
+	_utils.stagePrint(newStage, true);
+}
+
 void PhantomGuidance::seperateStage(){
 	digitalWrite(_constants.STAGE_SEP_PIN, HIGH);
-	stageRocket(Stage.Chute);
 }
 
 void PhantomGuidance::executePIDs(){
@@ -149,4 +162,59 @@ void PhantomGuidance::executePIDs(){
 
 	compute();
 	steer(pitchOutput, rollOutput, yawOutput);
+}
+
+void PhantomGuidance::printTelemetry(boolean ground){
+	_utils.logPrint("LOX_Pressure: ", false);
+	_utils.dataPrint(_modules.getLOXTankPressure, false);
+	_utils.logPrint(" ", false);
+	_utils.logPrint(_constants.PRESSURE_UNITS, true);
+	
+	_utils.logPrint("Fuel Pressure: ", false);
+	_utils.dataPrint(_modules.getFuelTankPressure, false);
+	_utils.logPrint(" ", false);
+	_utils.logPrint(_constants.PRESSURE_UNITS, true);
+	
+	_utils.logPrint("", true);
+	
+	_utils.logPrint("LOX Tank Pressure: ", false);
+	_utils.dataPrint(_modules.getLOXTankPressure, false);
+	_utils.logPrint(" ", false);
+	_utils.logPrint(_constants.PRESSURE_UNITS, true);
+	
+	_utils.logPrint("", true);
+	
+	_utils.logPrint("Fuel Tank Pressure: ", false);
+	_utils.dataPrint(_modules.getFuelTankPressure, false);
+	_utils.logPrint(" ", false);
+	_utils.logPrint(_constants.PRESSURE_UNITS, true);
+	
+	_utils.logPrint("", true);
+	
+	if(!ground){
+		_utils.logPrint("Relative Altitude: ", false);
+		_utils.dataPrint(_modules.getAltitude(false), false);
+		_utils.logPrint(" ", false);
+		_utils.logPrint(_constants.HEIGHT_UNITS, true);
+		_utils.logPrint("", true);
+		
+		_utils.logPrint("True Altitude: ", false);
+		_utils.dataPrint(_modules.getAltitude(true), false);
+		_utils.logPrint(" ", false);
+		_utils.logPrint(_constants.HEIGHT_UNITS, true);
+		
+		_utils.logPrint("", true);_utils.logPrint("Comb. Chamber Temperature: ", false);
+		_utils.dataPrint(_modules.getCCTemperature, false);
+		_utils.logPrint(" ", false);
+		_utils.logPrint(_constants.TEMP_UNITS, true);
+		
+		_utils.logPrint("", true);
+		
+		_utils.logPrint("Nozzle Temperature: ", false);
+		_utils.dataPrint(_modules.getNozzleTemperature, false);
+		_utils.logPrint(" ", false);
+		_utils.logPrint(_constants.TEMP_UNITS, true);
+		
+		_utils.logPrint("", true);
+	}
 }

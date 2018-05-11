@@ -9,7 +9,8 @@ class PhantomUtils {
 	PhantomUtils(PhantomConstants constants);
 	
 	void logPrint(String msg, boolean ln);
-	void printStage(Stage toPrint, boolean ln);
+	void stagePrint(Stage toPrint, boolean ln);
+	void dataPrint(int data, boolean ln);
 	boolean arrayEquals(int array_one[], int array_two[]);
 };
 

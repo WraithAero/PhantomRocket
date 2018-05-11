@@ -18,6 +18,8 @@ const int FIN_DEGREES_PER_SECOND = 60;
 const int CHUTE_DEPLOY_ALT = 1500;
 
 const String logName = "main_control.log";
+const String PRESSURE_UNITS = "psi";
+const String TEMP_UNITS = "*C";
 
 const int LAUNCHPAD_COM_PIN = 5;
 const int PARACHUTE_PIN = 6;
@@ -37,7 +39,13 @@ const int MISO_PIN = 19;
 const int STAGE_SEP_PIN = 20;
 
 const int LOX_PRESSURE_PIN = A1;
+const int FUEL_PRESSURE_PIN = A2;
 
+const int LOX_PRESSURE_CALIBRATION = 1;
+const int FUEL_PRESSURE_CALIBRATION = 1;
+
+const int LOX_EMPTY_PRESSURE = 0;
+const int FUEL_EMPTY_PRESSURE = 0;
 
 int LAUNCH_SEQUENCE[] = {1, 0, 1};
 int ABORT_SEQUENCE[] = {0, 1, 0};

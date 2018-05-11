@@ -127,30 +127,45 @@ double PhantomModules::getOptimalYaw() {
   return 90;
 }
 
-double getCCTemp(){
+double PhantomModules::getCCTemperature(){
   return cc_thermocoil.get();
 }
 
-double getAltitude() {
-  return baro.getAltitude() - initAlt;
+double PhantomModules::getNozzleTemperature(){
+	return nozzle_thermocoil.get();
 }
 
-void setGyro() {
+double PhantomModules::getAltitude(boolean absolute) {
+  if(absolute){
+	  return baro.getAltitude();
+  } else {
+	  return baro.getAltitude() - initAlt;
+  }
+}
+
+void PhantomModules::setGyro() {
   CurieIMU.readGyroScaled(gx, gy, gz);
 }
 
-float getPitch() {
+float PhantomModules::getPitch() {
   setGyro();
   return gx;
 }
 
-float getRoll() {
+float PhantomModules::getRoll() {
   setGyro();
   return gy;
 }
 
-float getYaw() {
+float PhantomModules::getYaw() {
   setGyro();
   return gz;
 }
 
+double PhantomModules::getLOXTankPressure(){
+	return (analogRead(_constants.LOX_PRESSURE_PIN) * _constants.LOX_PRESSURE_CALIBRATION);
+}
+
+double PhantomModules::getFuelTankPressure(){
+	return (analogRead(_constants.Fuel_PRESSURE_PIN) * _constants.FUEL_PRESSURE_CALIBRATION);
+}

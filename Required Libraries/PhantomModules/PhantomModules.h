@@ -9,7 +9,6 @@ class PhantomModules {
 	public:
 	PhantomModules(PhantomConstants constants);
 	
-	
 	void deployChutes();
 	
 	void openInputValves();
@@ -18,13 +17,17 @@ class PhantomModules {
 	double getOptimalRoll();
 	double getOptimalYaw();
 	
-	double getCCTemp();
+	double getCCTemperature();
+	double getNozzleTemperature();
 	double getAltitude();
 	
 	float getPitch();
 	float getRoll();
 	float getYaw();
 	void setGyro();
+	
+	double getLOXTankPressure();
+	double getFuelTankPressure();
 	
 	private:
 	PhantomConstants _constants;

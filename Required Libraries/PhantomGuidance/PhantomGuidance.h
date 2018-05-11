@@ -30,8 +30,10 @@ class PhantomGuidance {
 	double getSouth();
 	double getWest();
 	
-	void stageRocket(Stage newStage);
+	void guidanceLoop(Stage newStage);
 	void seperateStage();
+	
+	void stageRocket(Stage newStage);
 	
 	void executePIDs();
 	
@@ -72,6 +74,11 @@ class PhantomGuidance {
 	Servo east;
 	Servo south;
 	Servo west;
+	
+	boolean loaded = false;
+	
+	private:
+	void printTelemetry(boolean ground);
 };
 
 #endif
