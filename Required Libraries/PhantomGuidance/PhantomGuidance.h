@@ -26,7 +26,7 @@ class PhantomGuidance {
 	void writeWest(int angle);
 	
 	void stageRocket();
-	void seperateStages(Stage stage);
+	void seperateStage();
 };
 
 #endif

@@ -30,75 +30,75 @@ PhantomModules::PhantomModules(PhantomConstants constants, PhantomUtils utils){
   Serial.println("Serial and written to the SD file titled" + _constants.logName);
   Serial.println();
 
-  logPrint("Contacting pad...", true);
+  _utils.logPrint("Contacting pad...", true);
   signalPad();
-  logPrint("Waiting for pad response...", true);
-  while (digitalRead(LAUNCHPAD_COM_PIN) == 0);
-  logPrint("Received pad response", true);
+  _utils.logPrint("Waiting for pad response...", true);
+  while (digitalRead(_constants.LAUNCHPAND_COM_PIN) == 0);
+  _utils.logPrint("Received pad response", true);
 
-  logPrint("Initializing gyro...", true);
+  _utils.logPrint("Initializing gyro...", true);
   CurieIMU.begin();
   CurieIMU.setGyroRange(250);
-  logPrint("Gyro initialization complete", true);
-  logPrint("", true);
+  _utils.logPrint("Gyro initialization complete", true);
+  _utils.logPrint("", true);
 
-  logPrint("Initializing accelerometer...", true);
+  _utils.logPrint("Initializing accelerometer...", true);
   CurieIMU.setAccelerometerRange(2);
-  logPrint("Accelerometer initialization complete", true);
+  _utils.logPrint("Accelerometer initialization complete", true);
 
-  logPrint("Initializing fin servos...", true);
+  _utils.logPrint("Initializing fin servos...", true);
   north.attach(_constants.NORTH_PIN);
   east.attach(_constants.EAST_PIN);
   south.attach(_constants.SOUTH_PIN);
   west.attach(_constants._constants.WEST_PIN);
   setAllFins(_constants.STANDARD_FIN_VALUE);
-  logPrint("Servo initialization complete. Testing fins...", true);
+  _utils.logPrint("Servo initialization complete. Testing fins...", true);
   setAllFins(_constants.NEAR_FIN_VALUE);
   setAllFins(_constants.FAR_FIN_VALUE);
   setAllFins(_constants.STANDARD_FIN_VALUE);
-  logPrint("Fin Test Complete", true);
-  logPrint("", true);
+  _utils.logPrint("Fin Test Complete", true);
+  _utils.logPrint("", true);
 
-  logPrint("Initializing Barometer...", true);
+  _utils.logPrint("Initializing Barometer...", true);
   baro.begin();
   initAlt = baro.getAltitude();
-  logPrint("Barometer initialization complete", true);
-  logPrint("", true);
+  _utils.logPrint("Barometer initialization complete", true);
+  _utils.logPrint("", true);
 
-  logPrint("Initializing chutes...", true);
-  logPrint("Contacting chute 1...", true);
+  _utils.logPrint("Initializing chutes...", true);
+  _utils.logPrint("Contacting chute 1...", true);
   pinMode(_constants.PARACHUTE_PIN, OUTPUT);
   digitalWrite(_constants.PARACHUTE_PIN, HIGH);
-  logPrint("Waiting for response...", true);
+  _utils.logPrint("Waiting for response...", true);
   delay(90);
   digitalWrite(_constants.PARACHUTE_PIN, LOW);
   pinMode(_constants.PARACHUTE_PIN, INPUT);
   while (digitalRead(_constants.PARACHUTE_PIN) == 0);
-  logPrint("Chute 1 initialized", true);
+  _utils.logPrint("Chute 1 initialized", true);
 
-  logPrint("Initializing igniter and valves", true);
-  logPrint("Stand clear of rocket in case of mislight", true);
+  _utils.logPrint("Initializing igniter and valves", true);
+  _utils.logPrint("Stand clear of rocket in case of mislight", true);
   pinMode(_constants.IGNITER_PIN, OUTPUT);
   digitalWrite(_constants.IGNITER_PIN, LOW);
   pinMode(_constants.LOX_VALVE_PIN, OUTPUT);
   pinMode(_constants.FUEL_VALVE_PIN, OUTPUT);
   pinMode(_constants.LOX_INPUT_VALVE_PIN, OUTPUT);
   pinMode(_constants.FUEL_INPUT_VALVE_PIN, OUTPUT);
-  logPrint("Igniter and valves initialized", true);
+  _utils.logPrint("Igniter and valves initialized", true);
 
-  logPrint("Contacting lab", true);
+  _utils.logPrint("Contacting lab", true);
   pinMode(_constants.LAB_COM_PIN, OUTPUT);
   digitalWrite(_constants.LAB_COM_PIN, HIGH);
-  logPrint("Waiting for response...", true);
+  _utils.logPrint("Waiting for response...", true);
   delay(90);
   digitalWrite(_constants.LAB_COM_PIN, LOW);
   pinMode(_constants.LAB_COM_PIN, INPUT);
   while (digitalRead(_constants.LAB_COM_PIN) == 0);
-  logPrint("Lab contact established", true);
+  _utils.logPrint("Lab contact established", true);
 
-  logPrint("All modules initialized", true);
-  logPrint("Continue with launch procedure", true);
-  logPrint("", true);
+  _utils.logPrint("All modules initialized", true);
+  _utils.logPrint("Continue with launch procedure", true);
+  _utils.logPrint("", true);
 }
 
 double PhantomModules::getNorth(){
@@ -168,3 +168,4 @@ float getYaw() {
   setGyro();
   return gz;
 }
+
