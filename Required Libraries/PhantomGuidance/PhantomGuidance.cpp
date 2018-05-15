@@ -110,6 +110,7 @@ void PhantomGuidance::guidanceLoop(Stage newStage){
 	switch(newStage){
 		case Abort:
 			seperateStage();
+			deployChute();
 			break;
 		case On_Pad:
 			if (!baro.begin()) {
@@ -142,6 +143,13 @@ void PhantomGuidance::guidanceLoop(Stage newStage){
 			if(_modules.getLOXTankPressure <= LOX_EMPTY_PRESSURE && _modules.getFuelTankPressure < _constants.FUEL_EMPTY_PRESSURE){
 				stageRocket(Stage.Coast);
 			}
+			break;
+		case Coast:
+			if(_modules.getAltitude(false) <= _constants.CHUTE_DEPLOY_ALT){
+				stageRocket(Stage.Chute);
+			break;
+		case Chute:
+			_modules.deployChute();
 			break;
 	}
 }

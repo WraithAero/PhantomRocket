@@ -102,7 +102,7 @@ PhantomModules::PhantomModules(PhantomConstants constants, PhantomUtils utils){
   _utils.logPrint("", true);
 }
 
-void PhantomModules::deployChutes(){
+void PhantomModules::deployChute(){
 	digitalWrite(_constants.PARACHUTE_PIN, HIGH);
 }
 
@@ -168,4 +168,16 @@ double PhantomModules::getLOXTankPressure(){
 
 double PhantomModules::getFuelTankPressure(){
 	return (analogRead(_constants.Fuel_PRESSURE_PIN) * _constants.FUEL_PRESSURE_CALIBRATION);
+}
+
+void PhantomModules::signalPad(){
+	pinMode(LAUNCHPAD_COM_PIN, OUTPUT);
+	digitalWrite(LAUNCHPAD_COM_PIN, HIGH);
+	int initMillis = millis();
+	int currentMillis;
+	do {
+		currentMillis = millis();
+	} while (currentMillis - initMillis < 90);
+	digitalWrite(LAUNCHPAD_COM_PIN, LOW);
+	pinMode(LAUNCHPAD_COM_PIN, INPUT);
 }

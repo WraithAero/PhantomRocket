@@ -15,7 +15,7 @@ const int FAR_FIN_VALUE = 180;
 const int NEAR_FIN_VALUE = 0;
 const int STANDARD_FIN_VALUE = 90;
 const int FIN_DEGREES_PER_SECOND = 60;
-const int CHUTE_DEPLOY_ALT = 1500;
+const int CHUTE_DEPLOY_ALT = 3000;
 
 const String logName = "main_control.log";
 const String PRESSURE_UNITS = "psi";

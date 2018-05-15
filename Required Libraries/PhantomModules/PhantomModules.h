@@ -41,6 +41,8 @@ class PhantomModules {
 	float gx, gy, gz;
 
 	File main_log;
+	
+	void signalPad();
 };
 
 #endif
