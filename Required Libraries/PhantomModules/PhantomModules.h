@@ -19,6 +19,7 @@ class PhantomModules {
 	double getOptimalPitch();
 	double getOptimalRoll();
 	double getOptimalYaw();
+	double getOptimalCCPressure();
 	
 	double getCCTemperature();
 	double getNozzleTemperature();
@@ -31,6 +32,7 @@ class PhantomModules {
 	
 	double getLOXTankPressure();
 	double getFuelTankPressure();
+	double getCCPressure();
 	
 	private:
 	PhantomConstants _constants;

@@ -123,10 +123,13 @@ double PhantomModules::getOptimalPitch() {
   return p;
 }
 double PhantomModules::getOptimalRoll() {
-  return 0;
+  return _constants.OPTIMAL_ROLL;
 }
 double PhantomModules::getOptimalYaw() {
-  return 90;
+  return _constants.OPTIMAL_YAW;
+}
+double PhantomModules::getOptimalCCPressure(){
+	return _constants.OPTIMAL_CC_PRESSURE;
 }
 
 double PhantomModules::getCCTemperature(){
@@ -169,7 +172,11 @@ double PhantomModules::getLOXTankPressure(){
 }
 
 double PhantomModules::getFuelTankPressure(){
-	return (analogRead(_constants.Fuel_PRESSURE_PIN) * _constants.FUEL_PRESSURE_CALIBRATION);
+	return (analogRead(_constants.FUEL_PRESSURE_PIN) * _constants.FUEL_PRESSURE_CALIBRATION);
+}
+
+double PhantomModules::getCCPressure(){
+	return (analogRead(_constants.CC_PRESSURE_PIN) * _constants.CC_PRESSURE_CALIBRATION);
 }
 
 void PhantomModules::signalPad(){

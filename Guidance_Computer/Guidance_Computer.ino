@@ -17,11 +17,16 @@
 #include <PhantomUtils.h>
 
 PhantomConstants constants;
-PhantomModules modules = PhantomModules();
+PhantomModules modules;
+PhantomGuidance guidance;
+PhantomUtils utils;
 
 void setup() {
-  
+  modules = PhantomModules(constants, utils, modules, guidance);
+  guidance = PhantomGuidance(constants, modules, utils);
+  utils = PhantomUtils(constants, modules);
 }
 
 void loop() {  
+  guidance.guidanceLoop(modules.getPadCommand());
 }

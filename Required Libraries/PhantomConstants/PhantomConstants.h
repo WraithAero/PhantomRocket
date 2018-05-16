@@ -40,9 +40,15 @@ const int STAGE_SEP_PIN = 20;
 
 const int LOX_PRESSURE_PIN = A1;
 const int FUEL_PRESSURE_PIN = A2;
+const int CC_PRESSURE_PIN = A3;
 
 const int LOX_PRESSURE_CALIBRATION = 1;
 const int FUEL_PRESSURE_CALIBRATION = 1;
+const int CC_PRESSURE_CALIBRATION = 1;
+
+const int OPTIMAL_YAW = 90;
+const int OPTIMAL_ROLL = 0;
+const int OPTIMAL_CC_PRESSURE = 300;
 
 const int LOX_EMPTY_PRESSURE = 0;
 const int FUEL_EMPTY_PRESSURE = 0;

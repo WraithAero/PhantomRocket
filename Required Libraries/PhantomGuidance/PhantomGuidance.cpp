@@ -12,7 +12,7 @@ void PhantomGuidance::PhantomGuidance(PhantomConstants constants, PhantomModules
 	
 	pitch.SetMode(AUTOMATIC);
 	roll.SetMode(AUTOMATIC);
-	yaw.SetMode(AUTOMATIC);
+	yaw.SetMode(AUTOMATIC);'
 	
 	setInputs();
 }
@@ -103,10 +103,11 @@ double PhantomGuidance::getWest(){
 
 void PhantomGuidance::guidanceLoop(Stage newStage){
 	if(currentStage != newStage){
-		currentStage = newStage;	
+		currentStage = newStage;
+		_utils.logPrint("Stage: ", false);
+		_utils.printStage(newStage, true);		
 	}
-	_utils.logPrint("Stage: ", false);
-	_utils.printStage(newStage, true);
+	
 	switch(newStage){
 		case Abort:
 			seperateStage();
@@ -132,23 +133,32 @@ void PhantomGuidance::guidanceLoop(Stage newStage){
 			printTelemetry(true);
 			break;
 		case Launch:
+			_utils.logPrint("", true);
+			_utils.logPrint("||||||||||LAUNCH|||||||||||", true);
+			_utils.logPrint("", true);
+			
 			throttle(ThrottleLevel.Full);
 			delay(10);
 			digitalWrite(_constants.IGNITER_PIN, HIGH);
 			stageRocket(Stage.Burn);
+			engine.SetMode(AUTOMATIC);
 			executePIDs();
+			printTelemetry(false);
 			break;
 		case Burn:
 			executePID();
+			printTelemetry(false);
 			if(_modules.getLOXTankPressure <= LOX_EMPTY_PRESSURE && _modules.getFuelTankPressure < _constants.FUEL_EMPTY_PRESSURE){
 				stageRocket(Stage.Coast);
 			}
 			break;
 		case Coast:
+			printTelemetry(false);
 			if(_modules.getAltitude(false) <= _constants.CHUTE_DEPLOY_ALT){
 				stageRocket(Stage.Chute);
 			break;
 		case Chute:
+			printTelemetry(false);
 			_modules.deployChute();
 			break;
 	}
@@ -165,7 +175,7 @@ void PhantomGuidance::seperateStage(){
 }
 
 void PhantomGuidance::executePIDs(){
-	setSPs(getOptimalPitch(), getOptimalYaw(), getOptimalRoll());
+	setSPs(_modules.getOptimalPitch(), _modules.getOptimalYaw(), _modules.getOptimalRoll(), _modules.getOptimalCCPressure());
 	setInputs();
 
 	compute();
@@ -204,6 +214,7 @@ void PhantomGuidance::printTelemetry(boolean ground){
 		_utils.dataPrint(_modules.getAltitude(false), false);
 		_utils.logPrint(" ", false);
 		_utils.logPrint(_constants.HEIGHT_UNITS, true);
+		
 		_utils.logPrint("", true);
 		
 		_utils.logPrint("True Altitude: ", false);
@@ -211,7 +222,9 @@ void PhantomGuidance::printTelemetry(boolean ground){
 		_utils.logPrint(" ", false);
 		_utils.logPrint(_constants.HEIGHT_UNITS, true);
 		
-		_utils.logPrint("", true);_utils.logPrint("Comb. Chamber Temperature: ", false);
+		_utils.logPrint("", true);
+		
+		_utils.logPrint("Comb. Chamber Temperature: ", false);
 		_utils.dataPrint(_modules.getCCTemperature, false);
 		_utils.logPrint(" ", false);
 		_utils.logPrint(_constants.TEMP_UNITS, true);
@@ -223,6 +236,13 @@ void PhantomGuidance::printTelemetry(boolean ground){
 		_utils.logPrint(" ", false);
 		_utils.logPrint(_constants.TEMP_UNITS, true);
 		
+		_utils.logPrint("", true);
+		
+		_utils.logPrint("Comb. Chamber Pressure: ", false);
+		_utils.dataPrint(_modules.getCCPressure, false);
+		_utils.logPrint(" ", false);
+		_utils.logPrint(_constants.PRESSURE_UNITS, true);
+	
 		_utils.logPrint("", true);
 	}
 }

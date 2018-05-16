@@ -57,23 +57,31 @@ class PhantomGuidance {
 	double pitchP = 2;
 	double pitchI = 5;
 	double pitchD = 3;
+	
 	double rollP = 2;
 	double rollI = 5;
 	double rollD = 3;
+	
 	double yawP = 2;
 	double yawI = 5;
 	double yawD = 3;
 	
+	double engineP = 2;
+	double engineI = 5;
+	double engineD = 3;
+	
 	double pitchOutput;
 	double rollOutput;
 	double yawOutput;
+	double engineOutput;
 	
 	PID pitch(&pitchInput, &pitchOutput, &pitchSP, pitchP, pitchI, pitchD, DIRECT);
 	PID roll(&rollInput, &rollOutput, &rollSP, rollP, rollI, rollD, DIRECT);
 	PID yaw(&yawInput, &yawOutput, &yawSP, yawP, yawI, yawD, DIRECT);
+	PID engine(&engineInput, &engineOutput, &engineSP, engineP, engineI, engineD, DIRECT);
 	
-	double pitchSP, rollSP, yawSP;
-	double pitchInput, rollInput, yawInput;
+	double pitchSP, rollSP, yawSP, engineSP;
+	double pitchInput, rollInput, yawInput, engineInput;
 	
 	boolean loaded = false;
 	
