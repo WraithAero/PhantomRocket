@@ -11,9 +11,11 @@
 #include "Adafruit_MAX31855.h"
 #include "Adafruit_MPL3115A2.h"
 
-PhantomModules::PhantomModules(PhantomConstants constants, PhantomUtils utils){
+PhantomModules::PhantomModules(PhantomConstants constants, PhantomUtils utils, PhantomModules modules, PhantomGuidance guidance){
   _constants = constants;
   _utils = utils;
+  _modules = modules;
+  _guidance = guidance;
   Serial.begin(9600);
   while (!Serial);
   Serial.println("Initializing flight computer...");
@@ -171,13 +173,57 @@ double PhantomModules::getFuelTankPressure(){
 }
 
 void PhantomModules::signalPad(){
-	pinMode(LAUNCHPAD_COM_PIN, OUTPUT);
-	digitalWrite(LAUNCHPAD_COM_PIN, HIGH);
+	pinMode(_constants.LAUNCHPAD_COM_PIN, OUTPUT);
+	digitalWrite(_constants.LAUNCHPAD_COM_PIN, HIGH);
 	int initMillis = millis();
 	int currentMillis;
 	do {
 		currentMillis = millis();
 	} while (currentMillis - initMillis < 90);
-	digitalWrite(LAUNCHPAD_COM_PIN, LOW);
-	pinMode(LAUNCHPAD_COM_PIN, INPUT);
+	digitalWrite(_constants.LAUNCHPAD_COM_PIN, LOW);
+	pinMode(_constants.LAUNCHPAD_COM_PIN, INPUT);
+}
+
+Stage getPadCommand() {
+	Stage command;
+	double initMillis = millis();
+	double currentMillis;
+	int counter = 0;
+	int commandSequence[] = {0, 0, 0};
+	if (digitalRead(LAUNCHPAD_COM_PIN) > 0) {
+		do {
+			currentMillis = millis();
+			if (currentMillis - initMillis < counter + 1 * 110) {
+				if (digitalRead(LAUNCHPAD_COM_PIN) > 0) {
+					commandSequence[counter] = 1;
+				} else {
+					commandSequence[counter] = 0;
+				}
+				counter++;
+			}
+			signalPad();
+		} while (commandSequence[2] == _constants.NULL_SEQUENCE[2] && currentMillis - initMillis < 500);
+	
+		if (currentMillis - initMillis > 500) {
+			command = _guidance.currentStage;
+		}
+	
+		if (arrayEquals(commandSequence, LAUNCH_SEQUENCE)) {
+			command = Stage.Launch;
+		} else if (arrayEquals(commandSequence, ABORT_SEQUENCE)) {
+			command = Stage.Abort;
+		} else if (arrayEquals(commandSequence, FUEL_LOADING_SEQUENCE)) {
+			command = Stage.Loading_Fuel;
+		} else {
+			signalPad();
+			delay(9);
+			signalPad();
+			delay(90);
+			signalPad();
+			command = getPadCommand();
+		}
+	} else {
+		command = _guidance.currentStage;
+	}
+	return command;
 }

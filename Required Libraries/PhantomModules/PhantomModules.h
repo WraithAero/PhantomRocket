@@ -3,11 +3,14 @@
 
 #include "Arduino.h"
 #include "PhantomConstants.h"
+#include "PhantomUtils.h"
+#include "PhantomModules.h"
+#include "PhantomGuidance.h"
 #include "Stage.h"
 
 class PhantomModules {
 	public:
-	PhantomModules(PhantomConstants constants);
+	PhantomModules(PhantomConstants constants, PhantomUtils _utils, PhantomModules _modules, PhantomGuidance _guidance);
 	
 	void deployChutes();
 	
@@ -43,6 +46,7 @@ class PhantomModules {
 	File main_log;
 	
 	void signalPad();
+	void getPadCommand();
 };
 
 #endif

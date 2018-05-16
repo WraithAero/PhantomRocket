@@ -37,6 +37,18 @@ class PhantomGuidance {
 	
 	void executePIDs();
 	
+	double northAngle;
+	double eastAngle;
+	double southAngle;
+	double westAngle;
+	
+	Servo north;
+	Servo east;
+	Servo south;
+	Servo west;
+	
+	Stage currentStage = On_Pad;
+	
 	private:
 	PhantomConstants _constants;
 	PhantomModules _modules;
@@ -60,24 +72,11 @@ class PhantomGuidance {
 	PID roll(&rollInput, &rollOutput, &rollSP, rollP, rollI, rollD, DIRECT);
 	PID yaw(&yawInput, &yawOutput, &yawSP, yawP, yawI, yawD, DIRECT);
 	
-	Stage currentStage = On_Pad;
-
 	double pitchSP, rollSP, yawSP;
 	double pitchInput, rollInput, yawInput;
 	
-	double northAngle;
-	double eastAngle;
-	double southAngle;
-	double westAngle;
-	
-	Servo north;
-	Servo east;
-	Servo south;
-	Servo west;
-	
 	boolean loaded = false;
 	
-	private:
 	void printTelemetry(boolean ground);
 };
 
