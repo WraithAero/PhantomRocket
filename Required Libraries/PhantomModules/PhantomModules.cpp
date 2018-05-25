@@ -1,5 +1,4 @@
 #include "Arduino.h"
-#include "PhantomModules.h"
 #include "PhantomConstants.h"
 #include "PhantomUtils.h"
 #include "PhantomGuidance.h"
@@ -10,26 +9,26 @@
 #include "Servo.h"
 #include "Adafruit_MAX31855.h"
 #include "Adafruit_MPL3115A2.h"
+//Imports
 
-PhantomModules::PhantomModules(PhantomConstants constants, PhantomUtils utils, PhantomModules modules, PhantomGuidance guidance){
+PhantomModules::PhantomModules(PhantomConstants constants, PhantomUtils utils, PhantomGuidance guidance){ //Constructor
   _constants = constants;
   _utils = utils;
-  _modules = modules;
-  _guidance = guidance;
-  Serial.begin(9600);
-  while (!Serial);
+  _guidance = guidance //Imports instances of classes
+  Serial.begin(9600); //Establishes serial connection
+  while (!Serial); //Waits for serial connection to be established
   Serial.println("Initializing flight computer...");
   Serial.println();
 
   Serial.print("Initializing SD card...");
 
-  if (!SD.begin(_constants.SD_PIN)) {
+  if (!SD.begin(_constants.SD_PIN)) { //If SD is not responding
     Serial.println("initialization failed!");
-    while (1);
+    while (true); //Ends program
   }
   Serial.println("initialization done.");
   Serial.println();
-  Serial.println("All further reports will be output both to");
+  Serial.print("All further reports will be output to both ");
   Serial.println("Serial and written to the SD file titled" + _constants.logName);
   Serial.println();
 

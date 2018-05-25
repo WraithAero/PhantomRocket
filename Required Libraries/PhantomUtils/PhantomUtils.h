@@ -18,6 +18,7 @@ class PhantomUtils {
 	private:
 	PhantomConstants _constants;
 	PhantomModules _modules;
+	File main_log; 
 };
 
 #endif

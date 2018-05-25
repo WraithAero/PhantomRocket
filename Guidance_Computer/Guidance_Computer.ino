@@ -17,14 +17,14 @@
 #include <PhantomUtils.h>
 
 PhantomConstants constants;
-PhantomModules modules;
-PhantomGuidance guidance;
-PhantomUtils utils;
+PhantomModules modules = PhantomModules(constants, utils, guidance);
+PhantomGuidance guidance = PhantomGuidance(constants, modules, utils);
+PhantomUtils utils = PhantomUtils(constants, modules);
 
 void setup() {
   modules = PhantomModules(constants, utils, modules, guidance);
-  guidance = PhantomGuidance(constants, modules, utils);
   utils = PhantomUtils(constants, modules);
+  guidance = PhantomGuidance(constants, modules, utils);
 }
 
 void loop() {  
