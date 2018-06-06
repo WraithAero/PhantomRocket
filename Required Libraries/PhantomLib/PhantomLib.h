@@ -2,9 +2,16 @@
 #define PhantomLib_h
 
 #include "Arduino.h"
-#include "Stage.h"
-#include "PhantomConstants.h" 
+#include "PhantomConstants.h"
 #include "ThrottleLevel.h"
+#include "Stage.h"
+#include "SD.h"
+#include "SPI.h"
+#include "Wire.h"
+#include "CurieIMU.h"
+#include "Servo.h"
+#include "Adafruit_MAX31855.h"
+#include "Adafruit_MPL3115A2.h"
 
 class PhantomLibraries{
 
@@ -128,5 +135,7 @@ class PhantomLibraries{
 		boolean loaded = false;
 		
 		void printTelemetry(boolean ground);
+		
+		PhantomConstants _constants;
 };
 #endif

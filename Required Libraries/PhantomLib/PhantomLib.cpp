@@ -10,6 +10,10 @@
 #include "Adafruit_MAX31855.h"
 #include "Adafruit_MPL3115A2.h"
 
+void PhantomLib::PhantomLib(PhantomConstants constants){
+	_constants = constants;
+}
+
 void PhantomLib::steer(double pitchAngle, double rollAngle, double yawAngle){
 	if (currentStage != Chute) {
     writeEast(pitchAngle + rollAngle / 2);

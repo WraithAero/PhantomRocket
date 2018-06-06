@@ -11,22 +11,15 @@
 
 #include <Stage.h>
 #include <ThrottleLevel.h>
-#include <PhantomConstants.h>
-#include <PhantomModules.h>
-#include <PhantomGuidance.h>
-#include <PhantomUtils.h>
+#include <PhantomLib.h>
 
 PhantomConstants constants;
-PhantomModules modules = PhantomModules(constants, utils, guidance);
-PhantomGuidance guidance = PhantomGuidance(constants, modules, utils);
-PhantomUtils utils = PhantomUtils(constants, modules);
+PhantomLib lib = PhantomLib(constants);
 
 void setup() {
-  modules = PhantomModules(constants, utils, modules, guidance);
-  utils = PhantomUtils(constants, modules);
-  guidance = PhantomGuidance(constants, modules, utils);
+  lib.initialize();
 }
 
 void loop() {  
-  guidance.guidanceLoop(modules.getPadCommand());
+  lib.guidanceLoop(lib.getPadCommand());
 }

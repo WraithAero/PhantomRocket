@@ -57,6 +57,6 @@ int LAUNCH_SEQUENCE[] = {1, 0, 1};
 int ABORT_SEQUENCE[] = {0, 1, 0};
 int FUEL_LOADING_SEQUENCE[] = {1, 1, 1};
 int NULL_SEQUENCE[] = {0, 0, 0};
-}
+};
 
 #endif
