@@ -4,19 +4,7 @@
 <p>This code is made for the sole purpose of controlling the Phantom I <br>
 rocket, a liquid-fueled rocket made from scratch by Spectre Aerospace.</p>
 
-<h2>Experimental/Current libraries</h2>
-<p>(may not compile)</p>
-<ul>
-<li>Guidance: v0.6</li>
-<li>PadOS: v0.1</li>
-<li>LabOS: NA (yet)</li>
-<li>Engine Manager: NA (yet)</li>
-</ul>
-<p></p>
-<h2>Legacy libraries</h2>
-<ul>
-<li>Guidance: none that works! (yet)</li>
-<li>PadOS: none that works! (yet)</li>
-<li>LabOS: none that works! (yet)</li>
-<li>Engine Manager: none that works! (yet)</li>
-</ul>
+<h2>Installation</h2>
+<p>To install, extract folder to the location you want, if downloading as a zip. Then, copy and paste the folders in the "Required Libraries" folder to [Arduino install*]/libraries. If you have the IDE open, restart it to apply library changes. Then, do whatever you are going to do with the code!</p>
+<br><br>
+<p>*: Default is C:\Users\[user]\Documents\Arduino</p>
