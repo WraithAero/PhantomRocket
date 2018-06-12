@@ -7,4 +7,4 @@ rocket, a liquid-fueled rocket made from scratch by Spectre Aerospace.</p>
 <h2>Installation</h2>
 <p>To install, extract folder to the location you want, if downloading as a zip. Then, copy and paste the folders in the "Required Libraries" folder to [Arduino install*]/libraries. If you have the IDE open, restart it to apply library changes. Then, do whatever you are going to do with the code!</p>
 <br><br>
-<p>*: Default is C:\Users\[user]\Documents\Arduino</p>
+<p>*Default is C:\Users\[user]\Documents\Arduino</p>
