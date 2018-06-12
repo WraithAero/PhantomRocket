@@ -1,8 +1,8 @@
 # PhantomRocket
 
 <h2>Purpose</h2>
-<p>This code is made for the sole purpose of controlling the Phantom I </p>
-<p> rocket, a liquid-fueled rocket made from scratch by Spectre Aerospace.</p>
+<p>This code is made for the sole purpose of controlling the Phantom I \n
+rocket, a liquid-fueled rocket made from scratch by Spectre Aerospace.</p>
 
 <h2>Experimental/Current libraries</h2>
 <p>(may not compile)</p>
